@@ -12,13 +12,20 @@ import numpy as np
 import pandas as pd
 from bs4 import BeautifulSoup
 import re
+import os
 
 # ----------
 # BEFORE RUNNING
 
+# PASTE THE GAME ID IN THE POINTSTREAK URL IN QUOTATION MARKS
+
+POINTSTREAK_GAMEID = "613983"
+
 # PASTE THE POINSTREAK URL IN QUOTATION MARKS
 # gl_url = "http://ibl_baseball2.wttbaseball.pointstreak.com/gamelive/?gameid=599064"
-gl_url = "http://ibl_baseball2.wttbaseball.pointstreak.com/gamelive/?gameid=599038"
+# gl_url = "http://ibl_baseball2.wttbaseball.pointstreak.com/gamelive/?gameid=599038"
+gl_url = "http://ibl_baseball2.wttbaseball.pointstreak.com/gamelive/?gameid=" + POINTSTREAK_GAMEID
+
 
 # ENTER THE FOLLOWING VALUES
 # ENTER THE DATE IN THE FORM YYYY-MM-DD 
@@ -26,7 +33,7 @@ gl_url = "http://ibl_baseball2.wttbaseball.pointstreak.com/gamelive/?gameid=5990
 # MM is the month
 # DD is the date
 # GAME_DATE = '2023-08-18'
-GAME_DATE = '2023-08-16'
+GAME_DATE = '2024-05-18'
 # ENTER THE GAME TYPE
 # E is exhibition
 # C is championship
@@ -46,16 +53,16 @@ GAME_TYPE = 'R'
 # WEL is Welland
 # ENTER THE AWAY TEAM ABBREVIATION
 # AWAY_TEAM = 'BAR'
-AWAY_TEAM = 'BRA'
+AWAY_TEAM = 'BAR'
 # ENTER THE HOME TEAM ABBREVIATION
 # HOME_TEAM = 'LON'
-HOME_TEAM = 'BAR'
+HOME_TEAM = 'WEL'
 # ENTER THE AWAY STARTING PITCHER IN FORM FIRSTNAME LASTNAME
 # AWAY_STARTING_PITCHER = 'Juan Benitez'
-AWAY_STARTING_PITCHER = 'Quincy Jones'
+AWAY_STARTING_PITCHER = 'Carlos Sano'
 # ENTER THE HOME STARTING PITCHER IN FORM FIRSTNAME LASTNAME
 # HOME_STARTING_PITCHER = 'Alex Springer'
-HOME_STARTING_PITCHER = 'Aidan Rossel'
+HOME_STARTING_PITCHER = 'Ben Abram'
 # ENTER THE DOUBLEHEADER IDENTIFIER
 # 1 if the game is not the second game of a doubleheader
 # 2 if the game is the second game of a doubleheader
@@ -69,14 +76,14 @@ DH_IDENTIFIER = 1
 #                           'LF': 'Starlin Rodriguez',
 #                           'CF': 'Canice Ejoh',
 #                           'RF': 'Avery Tuck'}
-AWAY_STARTING_FIELDERS = {'C': 'Cris Ruiz',
-                          '1B': 'Nick Burdett',
-                          '2B': 'Kieran Bowles',
-                          '3B': 'Jaret Lupton',
-                          'SS': 'Gus Wilson',
-                          'LF': 'Christian Kuzemka',
-                          'CF': 'Jesse Fishbaum',
-                          'RF': 'Matthew Fabian'}
+AWAY_STARTING_FIELDERS = {'C': 'Hayden Jaco',
+                          '1B': 'Nolan Machibroda',
+                          '2B': 'Adam Odd',
+                          '3B': 'Malik Williams',
+                          'SS': 'Carson Burns',
+                          'LF': 'Brad McQuinn',
+                          'CF': 'Canice Ejoh',
+                          'RF': 'Rick Phillips'}
 # ENTER THE HOME STARTING FIELDERS AT THEIR POSITION IN FORM FIRSTNAME LASTNAME
 # HOME_STARTING_FIELDERS = {'C': 'Brad Verhoeven',
 #                           '1B': 'Kayne McGee',
@@ -86,14 +93,14 @@ AWAY_STARTING_FIELDERS = {'C': 'Cris Ruiz',
 #                           'LF': 'Starling Joseph',
 #                           'CF': 'Andrew Lawrence',
 #                           'RF': 'Byron Reichstein'}
-HOME_STARTING_FIELDERS = {'C': 'Kyle Maves',
-                          '1B': 'Adam Odd',
-                          '2B': 'Royce Ando',
-                          '3B': 'Victor Plaz',
-                          'SS': 'Carson Burns',
-                          'LF': 'Brad McQuinn',
-                          'CF': 'Canice Ejoh',
-                          'RF': 'Avery Tuck'}
+HOME_STARTING_FIELDERS = {'C': 'Robert Mullen',
+                          '1B': 'Steven Moretto',
+                          '2B': 'Dawson Tweet',
+                          '3B': 'Ethan Hunt',
+                          'SS': 'Tyler Dupuis',
+                          'LF': 'Brandon Hupe',
+                          'CF': 'Gianfranco Morello',
+                          'RF': 'Matteo Porcellato'}
 # ----------
 
 # scrape the data
@@ -153,7 +160,7 @@ def get_batter_stand(batter):
 def get_gl_id(player):
    return '#' + str(int(player['number'])) + ' ' + player['abbreviation']
 
-players_url = 'https://docs.google.com/spreadsheets/d/1LzMRCs2kW3MALMj69c1mOhLUcUH7jYLCRDnpoydqDIU/edit#gid=1956963491'
+players_url = 'https://docs.google.com/spreadsheets/d/1F8GBPtLhugdO0pqrJe3O9fMPOYv3AqVRq8ouUZWZxIY/edit#gid=897408437'
 
 new_players_url = convert_google_sheet_url(players_url)
 
@@ -232,14 +239,40 @@ for pbp_pa in pbp_gt:
         if (pbp_pa[0][i] == " "):
             # add one to counter
             count_spaces += 1
+            # once five has been reached
+            if (count_spaces == 5):
+                if (pbp_pa[0][0:i] in list(players_df[['gl_id']].values)):    
+                    # add a second element to the list starting after the fifth whitespace
+                    pbp_pa.insert(1, pbp_pa[0][(i + 1):len(pbp_pa[0])])
+                    # subset the first element to be only up to the fifth whitespace
+                    pbp_pa[0] = pbp_pa[0][0:i]
+                    # terminate the loop
+                    break
+            # once four has been reached
+            if (count_spaces == 4):
+                if (pbp_pa[0][0:i] in list(players_df[['gl_id']].values)):
+                    # add a second element to the list starting after the fourth whitespace
+                    pbp_pa.insert(1, pbp_pa[0][(i + 1):len(pbp_pa[0])])
+                    # subset the first element to be only up to the fourth whitespace
+                    pbp_pa[0] = pbp_pa[0][0:i]
+                    # terminate the loop
+                    break
             # once three has been reached
             if (count_spaces == 3):
-                # add a second element to the list starting after the third whitespace
-                pbp_pa.append(pbp_pa[0][(i + 1):len(pbp_pa[0])])
-                # subset the first element to be only up to the third whitespace
-                pbp_pa[0] = pbp_pa[0][0:i]
-                # terminate the loop
-                break
+                if (pbp_pa[0][0:i] in list(players_df[['gl_id']].values)):
+                    # add a second element to the list starting after the third whitespace
+                    pbp_pa.insert(1, pbp_pa[0][(i + 1):len(pbp_pa[0])])
+                    # subset the first element to be only up to the third whitespace
+                    pbp_pa[0] = pbp_pa[0][0:i]
+                    # terminate the loop
+                    break
+                if ((re.search("Pitching Substitution|Offensive Substitution|Defensive Substitution", pbp_pa[0]) != None)):
+                    # add a second element to the list starting after the third whitespace
+                    pbp_pa.insert(1, pbp_pa[0][(i + 1):len(pbp_pa[0])])
+                    # subset the first element to be only up to the third whitespace
+                    pbp_pa[0] = pbp_pa[0][0:i]
+                    # terminate the loop
+                    break
 
 # replace Game Live id in form #XX F. LastName with FirstName LastName
 # iterate over plate appearances
@@ -272,6 +305,16 @@ for pbp_pa in pbp_gt:
 
 GAME_YEAR = int(GAME_DATE[0:4])
 GAME_PK = GAME_DATE[0:4] + GAME_DATE[5:7] + GAME_DATE[8:len(GAME_DATE)] + AWAY_TEAM + HOME_TEAM + str(DH_IDENTIFIER)
+
+
+output_txt_file_string = os.path.join(os.path.abspath(os.getcwd()), 'baycats/raw_game_txt_files/gametext_' + GAME_PK + '.txt')
+f = open(output_txt_file_string, 'w')
+for pbp_pa in pbp_gt_nn:
+    for pitch in pbp_pa:
+        f.write(pitch)
+        f.write("\n")
+    f.write("\n")
+f.close()
 
 # game level
 lineup_positions = ['C', '1B', '2B', '3B', 'SS', 'LF', 'CF', 'RF']
@@ -341,7 +384,8 @@ game_dict = {'game_date': [],
            'post_away_score': [], 
            'post_home_score': [], 
            'post_bat_score': [], 
-           'post_fld_score': []}
+           'post_fld_score': [],
+           'baserunner_event': []}
 game_df = pd.DataFrame(data=game_dict)
 
 # game level
@@ -410,6 +454,7 @@ for pa in range(len(pbp_gt_nn)):
     post_home_score_l = []
     post_bat_score_l = []
     post_fld_score_l = []
+    baserunner_event_l = []
 
     # if is a plate appearance
     # check if first entry is a batter name
@@ -499,11 +544,30 @@ for pa in range(len(pbp_gt_nn)):
         else: away_pitcher_throws_temp = away_pitcher_throws
             
         # count runs scored in plate appearance
-        pa_runs = pbp_pa[len(pbp_pa) - 1].count('Scores Earned')
-        pa_runs += pbp_pa[len(pbp_pa) - 1].count('Scores Unearned')
+        pa_runs = 0
+        for pitch in pbp_pa:
+            pa_runs += pitch.count('Scores Earned')
+            pa_runs += pitch.count('Scores Unearned')
+
+        baserunner_event_tr = 0
+        # check for baserunner event
+        for pitch in pbp_pa:
+            if (re.search(r"stolen base|wild pitch|caught stealing|passed ball|pass ball|Pickoff attempt", pitch)):
+                baserunner_event_tr = 1
 
         if (len(pbp_pa) > 2):
             for i in range(1, (len(pbp_pa)-1)):
+                if (re.search(r"stolen base|wild pitch|caught stealing|passed ball|pass ball|Pickoff attempt", pbp_pa[i])):
+                    # if baserunner events in the form ", EVENT, "
+                    if (pbp_pa[i][0:2] == ', '):
+                        # append baserunner event starting from after first comma
+                        pbp_pa[len(pbp_pa) - 1] = pbp_pa[i][2:len(pbp_pa[i])] + pbp_pa[len(pbp_pa) - 1]
+                        continue
+                    else:
+                        # append baserunner event
+                        pbp_pa[len(pbp_pa) - 1] = pbp_pa[i][0:len(pbp_pa[i])] + pbp_pa[len(pbp_pa) - 1]
+                        continue
+
                 game_date_l.append(GAME_DATE)
                 batter_l.append(batter)
                 if (inning_topbot_tr == 'Top'):
@@ -591,6 +655,8 @@ for pa in range(len(pbp_gt_nn)):
                     post_home_score_l.append((home_score_tr + pa_runs))
                     post_bat_score_l.append((home_score_tr + pa_runs))
                     post_fld_score_l.append(away_score_tr)
+                baserunner_event_l.append(baserunner_event_tr)
+                
             game_date_l.append(GAME_DATE)
             batter_l.append(batter)
             if (inning_topbot_tr == 'Top'):
@@ -629,8 +695,10 @@ for pa in range(len(pbp_gt_nn)):
                 events_l.append('field_out')
             elif (re.search(r"\([1-6]-", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('field_out')
-            elif (re.search(r"\([1-6]\)", pbp_pa[len(pbp_pa) - 1]) != None):
+            elif (re.search(r"\([1-6]\)|\(P[1-6]\)", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('field_out')
+            elif (re.search(r"sacrifice fly", pbp_pa[len(pbp_pa) - 1]) != None):
+                events_l.append('sac_fly')
             else: events_l.append('unrecognized')
 
             if (re.search("intentional walk", pbp_pa[len(pbp_pa) - 1]) != None):
@@ -653,7 +721,8 @@ for pa in range(len(pbp_gt_nn)):
                   (events_l[len(events_l) - 1] == 'double_play') | 
                   (events_l[len(events_l) - 1] == 'field_error') | 
                   (events_l[len(events_l) - 1] == 'fielders_choice') |
-                  (events_l[len(events_l) - 1] == 'field_out')):
+                  (events_l[len(events_l) - 1] == 'field_out') |
+                  (events_l[len(events_l) - 1] == 'sac_fly')):
                 description_l.append('hit_into_play')
             else: description_l.append('unrecognized')
 
@@ -734,6 +803,7 @@ for pa in range(len(pbp_gt_nn)):
                 post_home_score_l.append((home_score_tr + pa_runs))
                 post_bat_score_l.append((home_score_tr + pa_runs))
                 post_fld_score_l.append(away_score_tr)
+            baserunner_event_l.append(baserunner_event_tr)
 
         else:
             game_date_l.append(GAME_DATE)
@@ -774,8 +844,10 @@ for pa in range(len(pbp_gt_nn)):
                 events_l.append('field_out')
             elif (re.search(r"\([1-6]-", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('field_out')
-            elif (re.search(r"\([1-6]\)", pbp_pa[len(pbp_pa) - 1]) != None):
+            elif (re.search(r"\([1-6]\)|\(P[1-6]\)", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('field_out')
+            elif (re.search(r"sacrifice fly", pbp_pa[len(pbp_pa) - 1]) != None):
+                events_l.append('sac_fly')
             else: events_l.append('unrecognized')
 
             if (re.search("intentional walk", pbp_pa[len(pbp_pa) - 1]) != None):
@@ -798,7 +870,8 @@ for pa in range(len(pbp_gt_nn)):
                   (events_l[len(events_l) - 1] == 'double_play') | 
                   (events_l[len(events_l) - 1] == 'field_error') | 
                   (events_l[len(events_l) - 1] == 'fielders_choice') |
-                  (events_l[len(events_l) - 1] == 'field_out')):
+                  (events_l[len(events_l) - 1] == 'field_out') |
+                  (events_l[len(events_l) - 1] == 'sac_fly')):
                 description_l.append('hit_into_play')
             else: description_l.append('unrecognized')
 
@@ -879,6 +952,7 @@ for pa in range(len(pbp_gt_nn)):
                 post_home_score_l.append((home_score_tr + pa_runs))
                 post_bat_score_l.append((home_score_tr + pa_runs))
                 post_fld_score_l.append(away_score_tr)
+            baserunner_event_l.append(baserunner_event_tr)
 
         if (inning_topbot_tr == 'Top'):
             away_score_tr = away_score_tr + pa_runs
@@ -967,7 +1041,8 @@ for pa in range(len(pbp_gt_nn)):
                    'post_away_score': post_away_score_l, 
                    'post_home_score': post_home_score_l, 
                    'post_bat_score': post_bat_score_l, 
-                   'post_fld_score': post_fld_score_l}
+                   'post_fld_score': post_fld_score_l,
+                   'baserunner_event': baserunner_event_l}
         pa_df = pd.DataFrame(data=pa_dict)
 
         game_df = pd.concat([game_df, pa_df], ignore_index=True)
@@ -1272,6 +1347,9 @@ times_faced_df['times_faced'] = times_faced_df.groupby(['pitcher', 'batter']).cu
 times_faced_df = times_faced_df[['pitcher', 'batter', 'sv_id', 'times_faced']]
 game_df = pd.merge(game_df, times_faced_df, on=['pitcher', 'batter', 'sv_id'], how='left')
 
+# print PAs with a baserunner event
+baserunner_event_sv_ids = game_df[game_df['baserunner_event'] == 1]['sv_id'].unique().tolist()
+
 game_df = game_df[['game_date', 'game_pk', 'away_team', 'home_team', 
                    'game_type', 'game_year', 'sv_id', 'batter',
                    'pitcher', 'stand', 'p_throws', 'events',
@@ -1288,8 +1366,8 @@ game_df = game_df[['game_date', 'game_pk', 'away_team', 'home_team',
                    'woba_value', 'woba_denom', 'babip_value', 'iso_value',
                    'role_key', 'pitch_number_appearance', 'pitcher_at_bat_number', 'times_faced']]
 
-output_file_string = '~/baycats/raw_game_data/' + GAME_PK + '.csv'
-game_df.to_csv(output_file_string, index=False)
+output_csv_file_string = '~/baycats/raw_game_data/' + GAME_PK + '.csv'
+game_df.to_csv(output_csv_file_string, index=False)
 
 # print box score stats
 
@@ -1326,5 +1404,6 @@ home_boxscore = home_df.groupby('game_pk')[['AB', 'H', 'BB', 'SO']].sum()
 home_boxscore['R'] = game_df.loc[(len(game_df.index) - 1), 'post_home_score']
 home_boxscore = home_boxscore[['AB', 'R', 'H', 'BB', 'SO']].reset_index()
 
+print(f"PAS WITH BASERUNNER EVENTS: {baserunner_event_sv_ids}")
 print(f"{game_df.loc[(len(game_df.index) - 1), 'away_team']}: {away_boxscore.loc[0, 'AB']} AB, {away_boxscore.loc[0, 'R']} R, {away_boxscore.loc[0, 'H']} H, {away_boxscore.loc[0, 'BB']} BB, {away_boxscore.loc[0, 'SO']} SO")
 print(f"{game_df.loc[(len(game_df.index) - 1), 'home_team']}: {home_boxscore.loc[0, 'AB']} AB, {home_boxscore.loc[0, 'R']} R, {home_boxscore.loc[0, 'H']} H, {home_boxscore.loc[0, 'BB']} BB, {home_boxscore.loc[0, 'SO']} SO")

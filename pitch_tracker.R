@@ -17,11 +17,12 @@ library(htmlwidgets)
 # HHH is the home team abbreviation
 # N is 1 if the game is not the second game of a doubleheader
 # N is 2 if the game is the second game of a doubleheader
-game_id <- '20230816BRABAR1'
+game_id <- '20240518BARWEL1'
 
 # ENTER WHETHER PITCHES ARE PARTIALLY OR FULLY TRACKED
 # TRUE if partially or fully tracked
 # FALSE if not tracked at all
+# only changes search directory for file
 partially_or_fully_tracked <- TRUE
 # ----------
 
@@ -136,7 +137,7 @@ get_pitch_name <- function(pitch_type) {
                            'EP'='Eephus',
                            'FA'='Other',
                            'FC'='Cutter',
-                           'FF'='Four-Seam Fastball',
+                           'FF'='Fastball',
                            'FO'='Forkball',
                            'FS'='Splitter',
                            'FT'='Two-Seam Fastball',
@@ -218,8 +219,8 @@ ui <- fluidPage(
                            'Cutter' = 'FC',
                            'Eephus' = 'EP',
                            'Other' = 'FA',
+                           'Fastball' = 'FF',
                            'Forkball' = 'FO',
-                           'Four-Seam Fastball' = 'FF',
                            'Knuckle Curve' = 'KC',
                            'Knuckleball' = 'KN',
                            'Pitch Out' = 'PO',
@@ -369,7 +370,12 @@ server = function(input, output, session) {
       showNotification('No previous pitches.', type='error')
     }
     else {
-      new_df_index <- df_index() - 1
+      if (as.character(game_data()[(df_index()-1), 'type']) == 'E') {
+        new_df_index <- df_index() - 2
+      }
+      else {
+        new_df_index <- df_index() - 1
+      }
       
       df_index(new_df_index)
       
@@ -382,8 +388,8 @@ server = function(input, output, session) {
                                   'Cutter' = 'FC',
                                   'Eephus' = 'EP',
                                   'Other' = 'FA',
+                                  'Fastball' = 'FF',
                                   'Forkball' = 'FO',
-                                  'Four-Seam Fastball' = 'FF',
                                   'Knuckle Curve' = 'KC',
                                   'Knuckleball' = 'KN',
                                   'Pitch Out' = 'PO',
@@ -489,8 +495,11 @@ server = function(input, output, session) {
   })
   
   observeEvent(input$next_pitch, {
-    if (df_index() == nrow(game_data())) {
+    if ((df_index() == nrow(game_data())) | ((df_index() == nrow(game_data()) - 1) & (game_data()[nrow(game_data()), 'type'] == 'E'))) {
       showNotification('No more pitches in game.', type='error')
+    }
+    else if ((game_data()[df_index(), 'type'] == 'X') & ((is.na(input$hit_location)) | (is.na(input$bb_type)) | (is.na(input$launch_speed_angle)))) {
+      showNotification('One or more necessary fields are empty. Select \'Unknown\' if the value cannot be input.', type='error')
     }
     else {
       if (input$pitch_type == '--') {
@@ -516,7 +525,12 @@ server = function(input, output, session) {
         
         game_data(updated_data)
         
-        new_df_index <- df_index() + 1
+        if (as.character(game_data()[(df_index()+1), 'type']) == 'E') {
+          new_df_index <- df_index() + 2
+        }
+        else {
+          new_df_index <- df_index() + 1
+        }
         
         df_index(new_df_index)
         
@@ -530,8 +544,8 @@ server = function(input, output, session) {
                                       'Cutter' = 'FC',
                                       'Eephus' = 'EP',
                                       'Other' = 'FA',
+                                      'Fastball' = 'FF',
                                       'Forkball' = 'FO',
-                                      'Four-Seam Fastball' = 'FF',
                                       'Knuckle Curve' = 'KC',
                                       'Knuckleball' = 'KN',
                                       'Pitch Out' = 'PO',
@@ -556,8 +570,8 @@ server = function(input, output, session) {
                                       'Cutter' = 'FC',
                                       'Eephus' = 'EP',
                                       'Other' = 'FA',
+                                      'Fastball' = 'FF',
                                       'Forkball' = 'FO',
-                                      'Four-Seam Fastball' = 'FF',
                                       'Knuckle Curve' = 'KC',
                                       'Knuckleball' = 'KN',
                                       'Pitch Out' = 'PO',
@@ -590,19 +604,37 @@ server = function(input, output, session) {
                             selected=as.numeric(game_data()[df_index(), 'hit_location']))
         }
         else {
-          updateSelectInput(session,
-                            'hit_location', label='Hit Location',
-                            choices=c('Not Hit Into Play' = NaN,
-                                      'P' = 1, 
-                                      'C' = 2, 
-                                      '1B' = 3, 
-                                      '2B' = 4, 
-                                      '3B' = 5, 
-                                      'SS' = 6, 
-                                      'LF' = 7, 
-                                      'CF' = 8, 
-                                      'RF' = 9,
-                                      'Unknown' = 0))
+          if (as.character(game_data()[df_index(), 'events']) %in% c('strikeout', 'strikeout_double_play')) {
+            updateSelectInput(session,
+                              'hit_location', label='Hit Location',
+                              choices=c('Not Hit Into Play' = NaN,
+                                        'P' = 1, 
+                                        'C' = 2, 
+                                        '1B' = 3, 
+                                        '2B' = 4, 
+                                        '3B' = 5, 
+                                        'SS' = 6, 
+                                        'LF' = 7, 
+                                        'CF' = 8, 
+                                        'RF' = 9,
+                                        'Unknown' = 0),
+                              selected=2)
+          }
+          else {
+            updateSelectInput(session,
+                              'hit_location', label='Hit Location',
+                              choices=c('Not Hit Into Play' = NaN,
+                                        'P' = 1, 
+                                        'C' = 2, 
+                                        '1B' = 3, 
+                                        '2B' = 4, 
+                                        '3B' = 5, 
+                                        'SS' = 6, 
+                                        'LF' = 7, 
+                                        'CF' = 8, 
+                                        'RF' = 9,
+                                        'Unknown' = 0))
+          }
         }
         
         if (!is.na(as.character(game_data()[df_index(), 'bb_type']))) {
@@ -701,6 +733,25 @@ server = function(input, output, session) {
       game_data(updated_data)
     }
     
+    updated_data <- game_data()
+    for (i in 1:nrow(updated_data)) {
+      if (as.character(updated_data[i, 'type']) == 'E') {
+        updated_data[i, 'pitch_type'] <- as.character(updated_data[(i-1), 'pitch_type'])
+        updated_data[i, 'plate_x'] <- as.numeric(updated_data[(i-1), 'plate_x'])
+        updated_data[i, 'plate_z'] <- as.numeric(updated_data[(i-1), 'plate_z'])
+        updated_data[i, 'hc_x'] <- as.numeric(updated_data[(i-1), 'hc_x'])
+        updated_data[i, 'hc_y'] <- as.numeric(updated_data[(i-1), 'hc_y'])
+        updated_data[i, 'hit_location'] <- as.numeric(updated_data[(i-1), 'hit_location'])
+        updated_data[i, 'bb_type'] <- as.character(updated_data[(i-1), 'bb_type'])
+        updated_data[i, 'launch_speed_angle'] <- as.numeric(updated_data[(i-1), 'launch_speed_angle'])
+        
+        updated_data[i, 'zone'] <- as.numeric(updated_data[(i-1), 'zone'])
+        updated_data[i, 'hit_distance_sc'] <- as.numeric(updated_data[(i-1), 'hit_distance_sc'])
+        updated_data[i, 'pitch_name'] <- as.character(updated_data[(i-1), 'pitch_name'])
+      }
+    }
+    game_data(updated_data)
+    
     write_csv(game_data(), paste0('~/baycats/pitches_tracked_game_data/', game_id, '_pt.csv'), na='')
     
     stopApp()
@@ -739,8 +790,8 @@ server = function(input, output, session) {
                                     'Cutter' = 'FC',
                                     'Eephus' = 'EP',
                                     'Other' = 'FA',
+                                    'Fastball' = 'FF',
                                     'Forkball' = 'FO',
-                                    'Four-Seam Fastball' = 'FF',
                                     'Knuckle Curve' = 'KC',
                                     'Knuckleball' = 'KN',
                                     'Pitch Out' = 'PO',
@@ -765,8 +816,8 @@ server = function(input, output, session) {
                                     'Cutter' = 'FC',
                                     'Eephus' = 'EP',
                                     'Other' = 'FA',
+                                    'Fastball' = 'FF',
                                     'Forkball' = 'FO',
-                                    'Four-Seam Fastball' = 'FF',
                                     'Knuckle Curve' = 'KC',
                                     'Knuckleball' = 'KN',
                                     'Pitch Out' = 'PO',
@@ -799,19 +850,37 @@ server = function(input, output, session) {
                           selected=as.numeric(game_data()[df_index(), 'hit_location']))
       }
       else {
-        updateSelectInput(session,
-                          'hit_location', label='Hit Location',
-                          choices=c('Not Hit Into Play' = NaN,
-                                    'P' = 1, 
-                                    'C' = 2, 
-                                    '1B' = 3, 
-                                    '2B' = 4, 
-                                    '3B' = 5, 
-                                    'SS' = 6, 
-                                    'LF' = 7, 
-                                    'CF' = 8, 
-                                    'RF' = 9,
-                                    'Unknown' = 0))
+        if (as.character(game_data()[df_index(), 'events']) %in% c('strikeout', 'strikeout_double_play')) {
+          updateSelectInput(session,
+                            'hit_location', label='Hit Location',
+                            choices=c('Not Hit Into Play' = NaN,
+                                      'P' = 1, 
+                                      'C' = 2, 
+                                      '1B' = 3, 
+                                      '2B' = 4, 
+                                      '3B' = 5, 
+                                      'SS' = 6, 
+                                      'LF' = 7, 
+                                      'CF' = 8, 
+                                      'RF' = 9,
+                                      'Unknown' = 0),
+                            selected=2)
+        }
+        else {
+          updateSelectInput(session,
+                            'hit_location', label='Hit Location',
+                            choices=c('Not Hit Into Play' = NaN,
+                                      'P' = 1, 
+                                      'C' = 2, 
+                                      '1B' = 3, 
+                                      '2B' = 4, 
+                                      '3B' = 5, 
+                                      'SS' = 6, 
+                                      'LF' = 7, 
+                                      'CF' = 8, 
+                                      'RF' = 9,
+                                      'Unknown' = 0))
+        }
       }
       
       if(!is.na(as.character(game_data()[df_index(), 'bb_type']))) {
