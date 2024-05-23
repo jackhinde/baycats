@@ -2,7 +2,7 @@ library(tidyverse)
 library(ggplot2)
 library(googlesheets4)
 
-ss_name <- 'https://docs.google.com/spreadsheets/d/1LzMRCs2kW3MALMj69c1mOhLUcUH7jYLCRDnpoydqDIU/edit#gid=0'
+ss_name <- 'https://docs.google.com/spreadsheets/d/1F8GBPtLhugdO0pqrJe3O9fMPOYv3AqVRq8ouUZWZxIY/edit#gid=0'
 
 # CREATE
 

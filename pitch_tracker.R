@@ -17,13 +17,13 @@ library(htmlwidgets)
 # HHH is the home team abbreviation
 # N is 1 if the game is not the second game of a doubleheader
 # N is 2 if the game is the second game of a doubleheader
-game_id <- '20240518BARWEL1'
+game_id <- '20240516TORBAR1'
 
 # ENTER WHETHER PITCHES ARE PARTIALLY OR FULLY TRACKED
 # TRUE if partially or fully tracked
 # FALSE if not tracked at all
 # only changes search directory for file
-partially_or_fully_tracked <- TRUE
+partially_or_fully_tracked <- FALSE
 # ----------
 
 {
@@ -300,6 +300,8 @@ ui <- fluidPage(
       
       fluidRow(dataTableOutput('pitch_data_2')),
       
+      fluidRow(dataTableOutput('pitch_data_3')),
+      
       fluidRow(splitLayout(cellwidths=c('33%', '33%', '33%'), textOutput('sz_label'), verbatimTextOutput('click_sz_x'), verbatimTextOutput('click_sz_z'))),
       
       fluidRow(splitLayout(cellwidths=c('33%', '33%', '33%'), textOutput('field_label'), verbatimTextOutput('click_field_x'), verbatimTextOutput('click_field_y')))
@@ -498,7 +500,7 @@ server = function(input, output, session) {
     if ((df_index() == nrow(game_data())) | ((df_index() == nrow(game_data()) - 1) & (game_data()[nrow(game_data()), 'type'] == 'E'))) {
       showNotification('No more pitches in game.', type='error')
     }
-    else if ((game_data()[df_index(), 'type'] == 'X') & ((is.na(input$hit_location)) | (is.na(input$bb_type)) | (is.na(input$launch_speed_angle)))) {
+    else if ((game_data()[df_index(), 'type'] == 'X') & (((is.na(input$hit_location)) & (game_data()[df_index(), 'events'] != 'home_run')) | (is.na(input$bb_type)) | (is.na(input$launch_speed_angle)))) {
       showNotification('One or more necessary fields are empty. Select \'Unknown\' if the value cannot be input.', type='error')
     }
     else {
@@ -712,7 +714,7 @@ server = function(input, output, session) {
     if (input$pitch_type == '--') {
       showNotification('Pitch Type field is empty. Select \'Unknown\' if the value cannot be input.', type='error')
     }
-    else if ((game_data()[df_index(), 'type'] == 'X') & ((is.na(input$hit_location)) | (is.na(input$bb_type)) | (is.na(input$launch_speed_angle)))) {
+    else if ((game_data()[df_index(), 'type'] == 'X') & (((is.na(input$hit_location)) & (game_data()[df_index(), 'events'] != 'home_run')) | (is.na(input$bb_type)) | (is.na(input$launch_speed_angle)))) {
       showNotification('One or more necessary fields are empty. Select \'Unknown\' if the value cannot be input.', type='error')
     }
     else {
@@ -1053,6 +1055,11 @@ server = function(input, output, session) {
       geom_segment(x = -1, y = 60.5, xend = -1, yend = 61) +
       geom_segment(x = 1, y = 60.5, xend = 1, yend = 61) +
       
+      # "squared" outfield dimensions
+      geom_segment(x=-54.62, y=405, xend=54.62, yend=405) +
+      geom_segment(x=-229.81, y=229.81, xend=-54.62, yend=405) +
+      geom_segment(x=229.81, y=229.81, xend=54.62, yend=405) +
+      
       geom_segment(aes(x = x_left, y = y_left, xend = x_right, yend = y_right), data=infield_cut_df) +
       
       # geom_curve(x = 229.81, y = 229.81, xend = -229.81, yend = 229.81, curvature = 0.725, angle = 90) +
@@ -1090,6 +1097,13 @@ server = function(input, output, session) {
     
     options=list(info=FALSE, lengthChange=FALSE, ordering=FALSE, paging=FALSE, searching=FALSE)
     
+  )
+  
+  output$pitch_data_3 <- renderDataTable(
+    game_data() %>% select(on_3b, on_2b, on_1b) %>%
+      slice(df_index()),
+    
+    options=list(info=FALSE, lengthChange=FALSE, ordering=FALSE, paging=FALSE, searching=FALSE)
   )
   
   output$sz_label <- renderText({
