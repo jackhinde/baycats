@@ -19,7 +19,7 @@ import os
 
 # PASTE THE GAME ID IN THE POINTSTREAK URL IN QUOTATION MARKS
 
-POINTSTREAK_GAMEID = "613983"
+POINTSTREAK_GAMEID = "613991"
 
 # PASTE THE POINSTREAK URL IN QUOTATION MARKS
 # gl_url = "http://ibl_baseball2.wttbaseball.pointstreak.com/gamelive/?gameid=599064"
@@ -33,7 +33,7 @@ gl_url = "http://ibl_baseball2.wttbaseball.pointstreak.com/gamelive/?gameid=" + 
 # MM is the month
 # DD is the date
 # GAME_DATE = '2023-08-18'
-GAME_DATE = '2024-05-18'
+GAME_DATE = '2024-05-24'
 # ENTER THE GAME TYPE
 # E is exhibition
 # C is championship
@@ -56,13 +56,13 @@ GAME_TYPE = 'R'
 AWAY_TEAM = 'BAR'
 # ENTER THE HOME TEAM ABBREVIATION
 # HOME_TEAM = 'LON'
-HOME_TEAM = 'WEL'
+HOME_TEAM = 'HAM'
 # ENTER THE AWAY STARTING PITCHER IN FORM FIRSTNAME LASTNAME
 # AWAY_STARTING_PITCHER = 'Juan Benitez'
-AWAY_STARTING_PITCHER = 'Carlos Sano'
+AWAY_STARTING_PITCHER = 'Frank Garces'
 # ENTER THE HOME STARTING PITCHER IN FORM FIRSTNAME LASTNAME
 # HOME_STARTING_PITCHER = 'Alex Springer'
-HOME_STARTING_PITCHER = 'Ben Abram'
+HOME_STARTING_PITCHER = 'Brett Lawson'
 # ENTER THE DOUBLEHEADER IDENTIFIER
 # 1 if the game is not the second game of a doubleheader
 # 2 if the game is the second game of a doubleheader
@@ -77,11 +77,11 @@ DH_IDENTIFIER = 1
 #                           'CF': 'Canice Ejoh',
 #                           'RF': 'Avery Tuck'}
 AWAY_STARTING_FIELDERS = {'C': 'Hayden Jaco',
-                          '1B': 'Nolan Machibroda',
-                          '2B': 'Adam Odd',
-                          '3B': 'Malik Williams',
+                          '1B': 'Malik Williams',
+                          '2B': 'Zac Orchard',
+                          '3B': 'Adam Odd',
                           'SS': 'Carson Burns',
-                          'LF': 'Brad McQuinn',
+                          'LF': 'Nolan Machibroda',
                           'CF': 'Canice Ejoh',
                           'RF': 'Rick Phillips'}
 # ENTER THE HOME STARTING FIELDERS AT THEIR POSITION IN FORM FIRSTNAME LASTNAME
@@ -93,14 +93,14 @@ AWAY_STARTING_FIELDERS = {'C': 'Hayden Jaco',
 #                           'LF': 'Starling Joseph',
 #                           'CF': 'Andrew Lawrence',
 #                           'RF': 'Byron Reichstein'}
-HOME_STARTING_FIELDERS = {'C': 'Robert Mullen',
-                          '1B': 'Steven Moretto',
-                          '2B': 'Dawson Tweet',
-                          '3B': 'Ethan Hunt',
-                          'SS': 'Tyler Dupuis',
-                          'LF': 'Brandon Hupe',
-                          'CF': 'Gianfranco Morello',
-                          'RF': 'Matteo Porcellato'}
+HOME_STARTING_FIELDERS = {'C': 'Luis Berndardo',
+                          '1B': 'Tanner Rempel',
+                          '2B': 'Keelor Loveridge',
+                          '3B': 'Zach Marriott',
+                          'SS': 'Tyler Duncan',
+                          'LF': 'Danny Berg',
+                          'CF': 'Brandon Nicholson',
+                          'RF': 'Dennis Dei Banning'}
 # ----------
 
 # scrape the data
@@ -695,7 +695,7 @@ for pa in range(len(pbp_gt_nn)):
                 events_l.append('field_out')
             elif (re.search(r"\([1-6]-", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('field_out')
-            elif (re.search(r"\([1-6]\)|\(P[1-6]\)", pbp_pa[len(pbp_pa) - 1]) != None):
+            elif (re.search(r"\([1-6]\)|\(P[1-6]\)|\(U[1-6]\)", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('field_out')
             elif (re.search(r"sacrifice fly", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('sac_fly')
@@ -844,7 +844,7 @@ for pa in range(len(pbp_gt_nn)):
                 events_l.append('field_out')
             elif (re.search(r"\([1-6]-", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('field_out')
-            elif (re.search(r"\([1-6]\)|\(P[1-6]\)", pbp_pa[len(pbp_pa) - 1]) != None):
+            elif (re.search(r"\([1-6]\)|\(P[1-6]\)|\(U[1-6]\)", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('field_out')
             elif (re.search(r"sacrifice fly", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('sac_fly')
@@ -1067,36 +1067,36 @@ for pa in range(len(pbp_gt_nn)):
                 pass
             elif ((re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == away_fielders[2])|(re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == home_fielders[2])):
                 if (inning_topbot_tr == 'Top'):
-                    away_fielders[2] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
-                else: home_fielders[2] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                    away_fielders[2] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
+                else: home_fielders[2] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
             elif ((re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == away_fielders[3])|(re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == home_fielders[3])):
                 if (inning_topbot_tr == 'Top'):
-                    away_fielders[3] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
-                else: home_fielders[3] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                    away_fielders[3] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
+                else: home_fielders[3] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
             elif ((re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == away_fielders[4])|(re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == home_fielders[4])):
                 if (inning_topbot_tr == 'Top'):
-                    away_fielders[4] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
-                else: home_fielders[4] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                    away_fielders[4] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
+                else: home_fielders[4] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
             elif ((re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == away_fielders[5])|(re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == home_fielders[5])):
                 if (inning_topbot_tr == 'Top'):
-                    away_fielders[5] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
-                else: home_fielders[5] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                    away_fielders[5] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
+                else: home_fielders[5] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
             elif ((re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == away_fielders[6])|(re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == home_fielders[6])):
                 if (inning_topbot_tr == 'Top'):
-                    away_fielders[6] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
-                else: home_fielders[6] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                    away_fielders[6] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
+                else: home_fielders[6] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
             elif ((re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == away_fielders[7])|(re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == home_fielders[7])):
                 if (inning_topbot_tr == 'Top'):
-                    away_fielders[7] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
-                else: home_fielders[7] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                    away_fielders[7] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
+                else: home_fielders[7] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
             elif ((re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == away_fielders[8])|(re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == home_fielders[8])):
                 if (inning_topbot_tr == 'Top'):
-                    away_fielders[8] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
-                else: home_fielders[8] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                    away_fielders[8] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
+                else: home_fielders[8] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
             elif ((re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == away_fielders[9])|(re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == home_fielders[9])):
                 if (inning_topbot_tr == 'Bot'):
-                    away_fielders[9] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
-                else: home_fielders[9] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                    away_fielders[9] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
+                else: home_fielders[9] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
         elif (pbp_pa[0] == 'Defensive Substitution'):
             if (re.search("subs", pbp_pa[1]) != None):
                 # if the sub is for a DH
