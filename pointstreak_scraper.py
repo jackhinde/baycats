@@ -17,6 +17,9 @@ import os
 # ----------
 # BEFORE RUNNING
 
+# CITY ID TO INDICATE PATHWAY
+City_ID = 'James'
+
 # PASTE THE GAME ID IN THE POINTSTREAK URL IN QUOTATION MARKS
 
 POINTSTREAK_GAMEID = "613991"
@@ -110,7 +113,7 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 # load the web page
 driver.get(gl_url)
 # set maximum time to load the web page in seconds
-driver.implicitly_wait(10)
+driver.implicitly_wait(20)
 
 contents = driver.find_element("xpath", "/html/body/div[1]/div/div[1]/div[9]/div[8]/div[1]/div[2]/table").get_attribute('outerHTML')
 soup = BeautifulSoup(contents, "html.parser")
@@ -120,7 +123,7 @@ space_string = " "
 formatted_entries = []
 for pa in entries:
     formatted_entry = pa.text
-    formatted_entry = re.sub("[\s]{2,}", " ", formatted_entry)
+    formatted_entry = re.sub("[\s]{2,}|[ ]{2,}", " ", formatted_entry)
     formatted_entry = re.sub("\n", "", formatted_entry)
     formatted_entries.append(formatted_entry)
 gt = ""
@@ -194,7 +197,7 @@ nw_gt = []
 # iterate over plate appearances
 for pa in gt:
     # remove whitespace
-    nw_pa = re.sub("\s\Z", "", pa)
+    nw_pa = re.sub("\s\Z| \Z", "", pa)
     # add reformatted plate appearance to list
     nw_gt.append(nw_pa)
 
@@ -306,8 +309,10 @@ for pbp_pa in pbp_gt:
 GAME_YEAR = int(GAME_DATE[0:4])
 GAME_PK = GAME_DATE[0:4] + GAME_DATE[5:7] + GAME_DATE[8:len(GAME_DATE)] + AWAY_TEAM + HOME_TEAM + str(DH_IDENTIFIER)
 
-
-output_txt_file_string = os.path.join(os.path.abspath(os.getcwd()), 'baycats/raw_game_txt_files/gametext_' + GAME_PK + '.txt')
+if (City_ID=="Jack"):
+    output_txt_file_string = os.path.join(os.path.abspath(os.getcwd()), 'baycats/raw_game_txt_files/gametext_' + GAME_PK + '.txt')
+else:
+    output_txt_file_string = os.path.join(os.path.abspath(os.getcwd()), 'raw_game_txt_files/gametext_' + GAME_PK + '.txt')
 f = open(output_txt_file_string, 'w')
 for pbp_pa in pbp_gt_nn:
     for pitch in pbp_pa:
@@ -1367,6 +1372,12 @@ game_df = game_df[['game_date', 'game_pk', 'away_team', 'home_team',
                    'role_key', 'pitch_number_appearance', 'pitcher_at_bat_number', 'times_faced']]
 
 output_csv_file_string = '~/baycats/raw_game_data/' + GAME_PK + '.csv'
+
+if (City_ID=="Jack"):
+    output_csv_file_string = '~/baycats/raw_game_data/' + GAME_PK + '.csv'
+else:
+    output_csv_file_string = '/Users/jameshenderson/Documents/GitHub/baycats/raw_game_data/' + GAME_PK + '.csv'
+
 game_df.to_csv(output_csv_file_string, index=False)
 
 # print box score stats

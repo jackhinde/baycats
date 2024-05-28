@@ -8,6 +8,9 @@ library(htmlwidgets)
 # ----------
 # BEFORE RUNNING
 
+#CITY ID TO INDICATE PATHWAY
+City_ID = "James"
+
 # ENTER THE GAME ID IN QUOTATION MARKS
 # IN THE FORM YYYYMMDDRRRHHHN
 # YYYY is the year
@@ -17,7 +20,7 @@ library(htmlwidgets)
 # HHH is the home team abbreviation
 # N is 1 if the game is not the second game of a doubleheader
 # N is 2 if the game is the second game of a doubleheader
-game_id <- '20240516TORBAR1'
+game_id <- '20240524BARHAM1'
 
 # ENTER WHETHER PITCHES ARE PARTIALLY OR FULLY TRACKED
 # TRUE if partially or fully tracked
@@ -28,10 +31,16 @@ partially_or_fully_tracked <- FALSE
 
 {
   if (partially_or_fully_tracked == FALSE) {
-    old_file_name <- paste0('~/baycats/raw_game_data/', game_id, '.csv')
+    if (City_ID == "Jack") {
+      old_file_name <- paste0('~/baycats/raw_game_data/', game_id, '.csv')
+    } 
+    else {old_file_name <- paste0('/Users/jameshenderson/Documents/GitHub/baycats/raw_game_data/', game_id, '.csv')}
   }
   else {
-    old_file_name <- paste0('~/baycats/pitches_tracked_game_data/', game_id, '_pt.csv')
+    if (City_ID == "Jack") {
+      old_file_name <- paste0('~/baycats/pitches_tracked_game_data/', game_id, '_pt.csv')
+    } 
+    else {old_file_name <- paste0('/Users/jameshenderson/Documents/GitHub/baycats/pitches_tracked_game_data/', game_id, '_pt.csv')}
   }
 }
 
@@ -754,8 +763,12 @@ server = function(input, output, session) {
     }
     game_data(updated_data)
     
-    write_csv(game_data(), paste0('~/baycats/pitches_tracked_game_data/', game_id, '_pt.csv'), na='')
-    
+    if (City_ID == "Jack") {
+      write_csv(game_data(), paste0('~/baycats/pitches_tracked_game_data/', game_id, '_pt.csv'), na='')
+    } 
+    else {
+      write_csv(game_data(), paste0('/Users/jameshenderson/Documents/GitHub/baycats/pitches_tracked_game_data/', game_id, '_pt.csv'), na='')
+    }
     stopApp()
   })
   
