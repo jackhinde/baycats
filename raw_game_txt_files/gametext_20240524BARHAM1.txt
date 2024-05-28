@@ -1,0 +1,524 @@
+Canice Ejoh
+Ball
+Canice Ejoh putout (U3) for out number 1
+
+Adam Odd
+Ball
+Foul
+Ball
+Adam Odd advances to 2nd (double to right field)
+
+Rick Phillips
+Foul
+Ball
+CalledStrike
+Rick Phillips advances to 1st (single to shortstop), Adam Odd advances to 3rd
+
+Ryan Rijo
+Ball
+CalledStrike
+Foul
+Foul
+Ryan Rijo putout (strike out) for out number 2
+
+Malik Williams
+Ball
+, Rick Phillips advances to 2nd (stolen base), 
+Ball
+CalledStrike
+Foul
+Ball
+Foul
+Foul
+Malik Williams advances to 1st (walk)
+
+Nolan Machibroda
+SwingingStrike
+Nolan Machibroda putout (fly out to the third baseman in foul territory) for out number 3
+
+Brandon Nicholson
+SwingingStrike
+Brandon Nicholson putout (6-3) for out number 1
+
+Danny Berg
+CalledStrike
+Ball
+Danny Berg putout (4-3) for out number 2
+
+Tyler Duncan
+CalledStrike
+SwingingStrike
+Ball
+Tyler Duncan putout (fly out to center field) for out number 3
+
+Hayden Jaco
+Ball
+Ball
+Hayden Jaco putout (fly out to left field) for out number 1
+
+Zachary Orchard
+CalledStrike
+Ball
+Foul
+Ball
+Ball
+Foul
+Foul
+Foul
+Zac Orchard advances to 1st (single to center field)
+
+Carson Burns
+CalledStrike
+Foul
+Ball
+Foul
+Ball
+Ball
+Carson Burns putout (strike out swinging) for out number 2
+
+Canice Ejoh
+Ball
+CalledStrike
+Ball
+Canice Ejoh advances to 1st (single to left field), Zac Orchard advances to 2nd
+
+Adam Odd
+Adam Odd putout (4-3) for out number 3
+
+Luis Bernardo
+Ball
+SwingingStrike
+Luis Bernardo putout (6-3) for out number 1
+
+Dennis Dei Baning
+SwingingStrike
+CalledStrike
+Foul
+Dennis Dei Baning advances to 1st (single to left field)
+
+Zach Marriott
+Ball
+CalledStrike
+Zach Marriott putout (fly out to left field) for out number 2
+
+Tanner Rempel
+CalledStrike
+Foul
+Tanner Rempel putout (strike out swinging) for out number 3
+
+Rick Phillips
+Ball
+CalledStrike
+Ball
+Rick Phillips putout (fly out to center field) for out number 1
+
+Ryan Rijo
+Ball
+CalledStrike
+SwingingStrike
+Foul
+Ball
+Ball
+Foul
+Foul
+Ryan Rijo putout (fly out to center field) for out number 2
+
+Malik Williams
+Ball
+Ball
+Malik Williams advances to 1st (single to left field)
+
+Nolan Machibroda
+Ball
+Ball
+Nolan Machibroda putout (U3) for out number 3
+
+Laine Renaud
+Foul
+CalledStrike
+Laine Renaud advances to 1st (error by the second baseman)
+
+Keelor Loveridge
+CalledStrike
+SwingingStrike
+Keelor Loveridge putout (fly out to right field) for out number 1
+
+Brandon Nicholson
+CalledStrike
+CalledStrike
+Ball
+Laine Renaud advances to 2nd, Brandon Nicholson putout (1-3) for out number 2
+
+Danny Berg
+SwingingStrike
+Danny Berg advances to 1st (single to third base), Laine Renaud advances to 3rd
+
+Tyler Duncan
+Ball
+Foul
+Ball
+SwingingStrike
+Ball
+Tyler Duncan putout (strike out swinging) for out number 3
+
+Hayden Jaco
+CalledStrike
+Foul
+Hayden Jaco advances to 1st (single to right field)
+
+Zachary Orchard
+CalledStrike
+CalledStrike
+Ball
+Hayden Jaco putout (6) for out number 1, Zac Orchard putout (6-3 DP) for out number 2
+
+Carson Burns
+Ball
+SwingingStrike
+CalledStrike
+Foul
+Carson Burns putout (strike out swinging) for out number 3
+
+Luis Bernardo
+Luis Bernardo advances to 1st (single to center field)
+
+Dennis Dei Baning
+Foul
+Ball
+Dennis Dei Baning advances to 2nd (double to right field), Luis Bernardo advances to 3rd
+
+Zach Marriott
+CalledStrike
+Foul
+Ball
+Zach Marriott putout (strike out swinging) for out number 1
+
+Tanner Rempel
+Ball
+SwingingStrike
+SwingingStrike
+Tanner Rempel putout (strike out swinging) for out number 2
+
+Laine Renaud
+CalledStrike
+SwingingStrike
+Laine Renaud putout (strike out swinging) for out number 3
+
+Canice Ejoh
+Ball
+Ball
+CalledStrike
+Ball
+Canice Ejoh putout (4-3) for out number 1
+
+Adam Odd
+Foul
+Adam Odd putout (5-3) for out number 2
+
+Rick Phillips
+Rick Phillips advances to 1st (single to right field)
+
+Ryan Rijo
+Ball
+SwingingStrike
+, Rick Phillips advances to 2nd (stolen base), 
+SwingingStrike
+Foul
+Ryan Rijo putout (strike out swinging) for out number 3
+
+Keelor Loveridge
+Ball
+Keelor Loveridge putout (fly out to right field) for out number 1
+
+Brandon Nicholson
+CalledStrike
+Brandon Nicholson putout (fly out to left field) for out number 2
+
+Danny Berg
+CalledStrike
+CalledStrike
+Ball
+Ball
+Ball
+Danny Berg putout (strike out swinging) for out number 3
+
+Pitching Substitution
+Kade Kozak subs for Brett Lawson Pitcher.
+
+Malik Williams
+CalledStrike
+Foul
+Ball
+Foul
+Ball
+Malik Williams advances to 2nd (double to center field)
+
+Nolan Machibroda
+Ball
+SwingingStrike
+Foul
+Ball
+Nolan Machibroda advances to 1st (hit by pitch)
+
+Hayden Jaco
+CalledStrike
+Foul
+Ball
+Ball
+Ball
+Foul
+Hayden Jaco advances to 1st (single to right field), Nolan Machibroda advances to 3rd, Malik Williams Scores Earned
+
+Zachary Orchard
+Foul
+CalledStrike
+Ball
+Ball
+Foul
+Zac Orchard advances to 1st (single to right field), Hayden Jaco advances to 2nd, Nolan Machibroda Scores Earned
+
+Carson Burns
+CalledStrike
+Ball
+Hayden Jaco advances to 3rd, Zac Orchard putout (4-6) for out number 1, Carson Burns putout (4-6-3 DP) for out number 2
+
+Pitching Substitution
+Callum Blue subs for Kade Kozak Pitcher.
+
+Canice Ejoh
+Foul
+Ball
+Ball
+Ball
+Hayden Jaco Scores Earned (balk), Canice Ejoh advances to 1st (walk)
+
+Adam Odd
+SwingingStrike
+Adam Odd putout (4-3) for out number 3
+
+Tyler Duncan
+Ball
+Tyler Duncan advances to 1st (single to second base)
+
+Luis Bernardo
+CalledStrike
+CalledStrike
+Foul
+Foul
+Luis Bernardo advances to 1st (fielder's choice), Tyler Duncan putout (6-4) for out number 1
+
+Dennis Dei Baning
+Ball
+SwingingStrike
+CalledStrike
+Foul
+Dennis Dei Baning putout (strike out swinging) for out number 2
+
+Zach Marriott
+Luis Bernardo Scores Earned, Zach Marriott Scores Earned (home run)
+
+Tanner Rempel
+SwingingStrike
+Foul
+Foul
+Tanner Rempel putout (strike out swinging) for out number 3
+
+Rick Phillips
+Ball
+SwingingStrike
+Ball
+Ball
+Rick Phillips putout (fly out to the first baseman in foul territory) for out number 1
+
+Ryan Rijo
+Ryan Rijo putout (U3) for out number 2
+
+Malik Williams
+Malik Williams putout (fly out to the second baseman) for out number 3
+
+Pitching Substitution
+Chris Lazar subs for Frank Garces Pitcher.
+
+Laine Renaud
+Foul
+Foul
+Ball
+Ball
+Foul
+Ball
+Laine Renaud putout (6-3) for out number 1
+
+Keelor Loveridge
+Keelor Loveridge putout (6-3) for out number 2
+
+Brandon Nicholson
+Ball
+CalledStrike
+SwingingStrike
+Foul
+Ball
+Brandon Nicholson putout (fly out to the shortstop) for out number 3
+
+Pitching Substitution
+Nick Davies subs for Callum Blue Pitcher.
+
+Nolan Machibroda
+Ball
+Foul
+Nolan Machibroda putout (fly out to left field) for out number 1
+
+Hayden Jaco
+Ball
+Ball
+SwingingStrike
+CalledStrike
+Ball
+Hayden Jaco putout (fly out to center field) for out number 2
+
+Offensive Substitution
+James Anderson subs for Zac Orchard.
+
+James Anderson
+Ball
+SwingingStrike
+CalledStrike
+Ball
+Ball
+Foul
+James Anderson advances to 1st (single to second base)
+
+Carson Burns
+Ball
+Foul
+Ball
+Foul
+Ball
+Foul
+Carson Burns advances to 1st (walk), James Anderson advances to 2nd
+
+Canice Ejoh
+Canice Ejoh advances to 1st (fielder's choice), Carson Burns putout (6-4) for out number 3
+
+Defensive Substitution
+Adam Odd moves to Second Base.
+
+Defensive Substitution
+Malik Williams moves to Third Base.
+
+Defensive Substitution
+Nolan Machibroda moves to First Base.
+
+Defensive Substitution
+James Anderson moves to Left Field.
+
+Danny Berg
+Ball
+SwingingStrike
+Danny Berg putout (4-3) for out number 1
+
+Tyler Duncan
+Ball
+Foul
+CalledStrike
+Ball
+Foul
+Ball
+Tyler Duncan putout (strike out) for out number 2
+
+Pitching Substitution
+Cesar Rosado subs for Chris Lazar Pitcher.
+
+Luis Bernardo
+Ball
+Ball
+SwingingStrike
+SwingingStrike
+Ball
+Luis Bernardo putout (strike out swinging) for out number 3
+
+Pitching Substitution
+Stefan Strecker subs for Nick Davies Pitcher.
+
+Adam Odd
+SwingingStrike
+Ball
+Adam Odd putout (fly out to left field) for out number 1
+
+Rick Phillips
+Ball
+Rick Phillips putout (6-3) for out number 2
+
+Ryan Rijo
+Ryan Rijo putout (fly out to left field) for out number 3
+
+Dennis Dei Baning
+Dennis Dei Baning advances to 1st (hit by pitch)
+
+Zach Marriott
+CalledStrike
+Foul
+Ball
+Zach Marriott putout (strike out) for out number 1
+
+Tanner Rempel
+CalledStrike
+Foul
+Ball
+Ball
+Ball
+Dennis Dei Baning advances to 2nd, Tanner Rempel putout (6-3) for out number 2
+
+Laine Renaud
+Ball
+Laine Renaud advances to 1st (single to center field), Dennis Dei Baning Scores Earned
+
+Offensive Substitution
+Brendon Daley runs for Laine Renaud at 1st base.
+
+Keelor Loveridge
+SwingingStrike
+Keelor Loveridge putout (fly out to the second baseman) for out number 3
+
+Ryan Rijo
+Ryan Rijo advances to 2nd (ITB)
+
+Pitching Substitution
+Alex Lanigan subs for Stefan Strecker Pitcher.
+
+Ryan Rijo
+Evan Soules Scores Unearned
+
+Offensive Substitution
+Evan Soules runs for Ryan Rijo at 2nd base.
+
+Carson Burns
+CalledStrike
+CalledStrike
+Foul
+CalledStrike
+, Malik Williams advances to 1st (single to right field), 
+Ball
+SwingingStrike
+Foul
+Ball
+Ball
+Nolan Machibroda advances to 1st (single to left field), Hayden Jaco advances to 1st (single to center field), Malik Williams advances to 2nd, Nolan Machibroda advances to 3rd, Malik Williams Scores Earned, Hayden Jaco putout (2-4) for out number 1, James Anderson putout (strike out swinging) for out number 2, Carson Burns putout (fly out to the shortstop) for out number 3
+
+Keelor Loveridge
+Keelor Loveridge advances to 2nd (ITB)
+
+Danny Berg
+Ball
+Ball
+CalledStrike
+, Tyler Duncan putout (fly out to center field) for out number 2, 
+CalledStrike
+Ball
+Ball
+Ball
+CalledStrike
+SwingingStrike
+SwingingStrike
+Ball
+Luis Bernardo putout (strike out swinging) for out number 3, Danny Berg advances to 1st (walk), Brandon Nicholson putout (strike out swinging) for out number 1
+
