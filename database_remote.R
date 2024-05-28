@@ -6,6 +6,9 @@ ss_name <- 'https://docs.google.com/spreadsheets/d/1F8GBPtLhugdO0pqrJe3O9fMPOYv3
 
 # CREATE
 
+#CITY ID TO INDICATE PATHWAY
+City_ID = "James"
+
 create_database <- function(game_id, signature, pt_data_fully_tracked=FALSE, pt_data_partially_tracked=FALSE, custom_message='') {
   # Creates the database and adds the first game.
   # 
@@ -23,10 +26,16 @@ create_database <- function(game_id, signature, pt_data_fully_tracked=FALSE, pt_
   # @details pt_data_fully_tracked and pt_data_partially_tracked cannot both be TRUE.
   if (!((pt_data_fully_tracked == TRUE) & (pt_data_partially_tracked == TRUE))) {
     if ((pt_data_fully_tracked == TRUE) | (pt_data_partially_tracked == TRUE)) {
-      game_data_file <- paste0('~/baycats/pitches_tracked_game_data/', game_id, '_pt.csv')
+      if (City_ID == "Jack") {
+        game_data_file <- paste0('~/baycats/pitches_tracked_game_data/', game_id, '_pt.csv')
+      } 
+      else {game_data_file <- paste0('/Users/jameshenderson/Documents/GitHub/baycats/pitches_tracked_game_data/', game_id, '_pt.csv')}
     }
     else {
-      game_data_file <- paste0('~/baycats/raw_game_data/', game_id, '.csv')
+      if (City_ID == "Jack") {
+        game_data_file <- paste0('~/baycats/raw_game_data/', game_id, '.csv')
+      } 
+      else {game_data_file <- paste0('/Users/jameshenderson/Documents/GitHub/baycats/raw_game_data/', game_id, '.csv')}
     }
     game_data <- read_csv(game_data_file)
     game_id <- unique(game_data$game_pk)
@@ -89,10 +98,16 @@ add_game <- function(game_id, signature, pt_data_fully_tracked=FALSE, pt_data_pa
   if (!((pt_data_fully_tracked == TRUE) & (pt_data_partially_tracked == TRUE))) {
     game_db <- range_speedread(ss_name, sheet='game_data')
     if ((pt_data_fully_tracked == TRUE) | (pt_data_partially_tracked == TRUE)) {
-      game_data_file <- paste0('~/baycats/pitches_tracked_game_data/', game_id, '_pt.csv')
+      if (City_ID == "Jack") {
+        game_data_file <- paste0('~/baycats/pitches_tracked_game_data/', game_id, '_pt.csv')
+      } 
+      else {game_data_file <- paste0('/Users/jameshenderson/Documents/GitHub/baycats/pitches_tracked_game_data/', game_id, '_pt.csv')}
     }
     else {
-      game_data_file <- paste0('~/baycats/raw_game_data/', game_id, '.csv')
+      if (City_ID == "Jack") {
+        game_data_file <- paste0('~/baycats/raw_game_data/', game_id, '.csv')
+      } 
+      else {game_data_file <- paste0('/Users/jameshenderson/Documents/GitHub/baycats/raw_game_data/', game_id, '.csv')}
     }
     game_data <- read_csv(game_data_file)
     game_id <- unique(game_data$game_pk)
@@ -192,12 +207,22 @@ save_game_data <- function(game_id, pt_data_fully_tracked=FALSE, pt_data_partial
     filter(game_pk == game_id)
   if (nrow(game_data) != 0) {
     if ((pt_data_fully_tracked == TRUE) | (pt_data_partially_tracked == TRUE)) {
-      write_csv(game_data, paste0('~/baycats/pitches_tracked_game_data/', game_id, '_pt.csv'))
-      log_message <- paste0('Game ', game_id, 'saved to ~/baycats/pitches_tracked_game_data.')
+      if (City_ID == "Jack") {
+        write_csv(game_data, paste0('~/baycats/pitches_tracked_game_data/', game_id, '_pt.csv'))
+        log_message <- paste0('Game ', game_id, 'saved to ~/baycats/pitches_tracked_game_data.')
+      } 
+      else {
+        write_csv(game_data, paste0('/Users/jameshenderson/Documents/GitHub/baycats/pitches_tracked_game_data/', game_id, '_pt.csv'))
+        log_message <- paste0('Game ', game_id, 'saved to /Users/jameshenderson/Documents/GitHub/baycats/pitches_tracked_game_data.')}
     }
     else {
-      write_csv(game_data, paste0('~/baycats/raw_game_data/', game_id, '.csv'))
-      log_message <- paste0('Game ', game_id, 'saved to ~/baycats/raw_game_data.')
+      if (City_ID == "Jack") {
+        write_csv(game_data, paste0('~/baycats/raw_game_data/', game_id, '.csv'))
+        log_message <- paste0('Game ', game_id, 'saved to ~/baycats/raw_game_data.')
+      } 
+      else {
+        write_csv(game_data, paste0('/Users/jameshenderson/Documents/GitHub/baycats/raw_game_data/', game_id, '.csv'))
+        log_message <- paste0('Game ', game_id, 'saved to /Users/jameshenderson/Documents/GitHub/baycats/raw_game_data.')}
     }
     print(log_message)
   }
