@@ -22,7 +22,7 @@ City_ID = 'James'
 
 # PASTE THE GAME ID IN THE POINTSTREAK URL IN QUOTATION MARKS
 
-POINTSTREAK_GAMEID = "613991"
+POINTSTREAK_GAMEID = "613993"
 
 # PASTE THE POINSTREAK URL IN QUOTATION MARKS
 # gl_url = "http://ibl_baseball2.wttbaseball.pointstreak.com/gamelive/?gameid=599064"
@@ -36,7 +36,7 @@ gl_url = "http://ibl_baseball2.wttbaseball.pointstreak.com/gamelive/?gameid=" + 
 # MM is the month
 # DD is the date
 # GAME_DATE = '2023-08-18'
-GAME_DATE = '2024-05-24'
+GAME_DATE = '2024-05-25'
 # ENTER THE GAME TYPE
 # E is exhibition
 # C is championship
@@ -62,10 +62,10 @@ AWAY_TEAM = 'BAR'
 HOME_TEAM = 'HAM'
 # ENTER THE AWAY STARTING PITCHER IN FORM FIRSTNAME LASTNAME
 # AWAY_STARTING_PITCHER = 'Juan Benitez'
-AWAY_STARTING_PITCHER = 'Frank Garces'
+AWAY_STARTING_PITCHER = 'Josh Laukkanen'
 # ENTER THE HOME STARTING PITCHER IN FORM FIRSTNAME LASTNAME
 # HOME_STARTING_PITCHER = 'Alex Springer'
-HOME_STARTING_PITCHER = 'Brett Lawson'
+HOME_STARTING_PITCHER = 'Carlos Sano'
 # ENTER THE DOUBLEHEADER IDENTIFIER
 # 1 if the game is not the second game of a doubleheader
 # 2 if the game is the second game of a doubleheader
@@ -79,14 +79,14 @@ DH_IDENTIFIER = 1
 #                           'LF': 'Starlin Rodriguez',
 #                           'CF': 'Canice Ejoh',
 #                           'RF': 'Avery Tuck'}
-AWAY_STARTING_FIELDERS = {'C': 'Hayden Jaco',
-                          '1B': 'Malik Williams',
-                          '2B': 'Zac Orchard',
-                          '3B': 'Adam Odd',
-                          'SS': 'Carson Burns',
-                          'LF': 'Nolan Machibroda',
-                          'CF': 'Canice Ejoh',
-                          'RF': 'Rick Phillips'}
+AWAY_STARTING_FIELDERS = {'C': 'Jeremie Veilleux',
+                          '1B': 'Nick Burdett',
+                          '2B': 'Kieran Bowles',
+                          '3B': 'Vaibhav Desai',
+                          'SS': 'Gus Wilson',
+                          'LF': 'Jordan Lewis',
+                          'CF': 'Ethan Paulos',
+                          'RF': 'Matthew Fabian'}
 # ENTER THE HOME STARTING FIELDERS AT THEIR POSITION IN FORM FIRSTNAME LASTNAME
 # HOME_STARTING_FIELDERS = {'C': 'Brad Verhoeven',
 #                           '1B': 'Kayne McGee',
@@ -96,14 +96,14 @@ AWAY_STARTING_FIELDERS = {'C': 'Hayden Jaco',
 #                           'LF': 'Starling Joseph',
 #                           'CF': 'Andrew Lawrence',
 #                           'RF': 'Byron Reichstein'}
-HOME_STARTING_FIELDERS = {'C': 'Luis Berndardo',
-                          '1B': 'Tanner Rempel',
-                          '2B': 'Keelor Loveridge',
-                          '3B': 'Zach Marriott',
-                          'SS': 'Tyler Duncan',
-                          'LF': 'Danny Berg',
-                          'CF': 'Brandon Nicholson',
-                          'RF': 'Dennis Dei Banning'}
+HOME_STARTING_FIELDERS = {'C': 'Tyler Plumpton',
+                          '1B': 'Nolan Machibroda',
+                          '2B': 'Adam Odd',
+                          '3B': 'Malik Williams',
+                          'SS': 'Carson Burns',
+                          'LF': 'Noah Hull',
+                          'CF': 'Canice Ejoh',
+                          'RF': 'Rick Phillips'}
 # ----------
 
 # scrape the data
@@ -460,7 +460,7 @@ for pa in range(len(pbp_gt_nn)):
     post_bat_score_l = []
     post_fld_score_l = []
     baserunner_event_l = []
-
+    
     # if is a plate appearance
     # check if first entry is a batter name
     if (pbp_pa[0] in players_df['player'].to_list()):
@@ -557,12 +557,12 @@ for pa in range(len(pbp_gt_nn)):
         baserunner_event_tr = 0
         # check for baserunner event
         for pitch in pbp_pa:
-            if (re.search(r"stolen base|wild pitch|caught stealing|passed ball|pass ball|Pickoff attempt", pitch)):
+            if (re.search(r"stolen base|wild pitch|caught stealing|passed ball|pass ball|Pickoff attempt|putout \(1-[3-6]'\)", pitch)):
                 baserunner_event_tr = 1
 
         if (len(pbp_pa) > 2):
             for i in range(1, (len(pbp_pa)-1)):
-                if (re.search(r"stolen base|wild pitch|caught stealing|passed ball|pass ball|Pickoff attempt", pbp_pa[i])):
+                if (re.search(r"stolen base|wild pitch|caught stealing|passed ball|pass ball|Pickoff attempt|putout \(1-[3-6]'\)", pbp_pa[i])):
                     # if baserunner events in the form ", EVENT, "
                     if (pbp_pa[i][0:2] == ', '):
                         # append baserunner event starting from after first comma
