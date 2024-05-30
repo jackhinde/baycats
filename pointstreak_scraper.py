@@ -1055,53 +1055,53 @@ for pa in range(len(pbp_gt_nn)):
     else:
         if (pbp_pa[0] == 'Pitching Substitution'):
             if (inning_topbot_tr == 'Top'):
-                home_pitcher = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                home_pitcher = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
                 home_pitcher_throws = get_pitcher_throws(home_pitcher)
                 if (home_pitcher_throws == 'S'):
                     home_pitcher_switch_pitcher = True
                 else: home_pitcher_switch_pitcher = False
             else: 
-                away_pitcher = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                away_pitcher = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
                 away_pitcher_throws = get_pitcher_throws(away_pitcher)
                 if (away_pitcher_throws == 'S'):
                     away_pitcher_switch_pitcher = True
                 else: away_pitcher_switch_pitcher = False
         elif (pbp_pa[0] == 'Offensive Substitution'):
             # if the substitution is undefined
-            if (re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]) == None):
+            if (re.search(r"(?<=for\s)\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+-\w+", pbp_pa[1]) == None):
                 pass
-            elif ((re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == away_fielders[2])|(re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == home_fielders[2])):
+            elif ((re.search(r"(?<=for\s)\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+-\w+", pbp_pa[1]).group(0) == away_fielders[2])|(re.search(r"(?<=for\s)\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+-\w+", pbp_pa[1]).group(0) == home_fielders[2])):
                 if (inning_topbot_tr == 'Top'):
-                    away_fielders[2] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
-                else: home_fielders[2] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
-            elif ((re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == away_fielders[3])|(re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == home_fielders[3])):
+                    away_fielders[2] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+-\w+(?=\ssubs)|\w+\s\w+-\w+(?=\sruns)", pbp_pa[1]).group(0)
+                else: home_fielders[2] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+-\w+(?=\ssubs)|\w+\s\w+-\w+(?=\sruns)", pbp_pa[1]).group(0)
+            elif ((re.search(r"(?<=for\s)\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+-\w+", pbp_pa[1]).group(0) == away_fielders[3])|(re.search(r"(?<=for\s)\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+-\w+", pbp_pa[1]).group(0) == home_fielders[3])):
                 if (inning_topbot_tr == 'Top'):
-                    away_fielders[3] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
-                else: home_fielders[3] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
-            elif ((re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == away_fielders[4])|(re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == home_fielders[4])):
+                    away_fielders[3] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+-\w+(?=\ssubs)|\w+\s\w+-\w+(?=\sruns)", pbp_pa[1]).group(0)
+                else: home_fielders[3] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+-\w+(?=\ssubs)|\w+\s\w+-\w+(?=\sruns)", pbp_pa[1]).group(0)
+            elif ((re.search(r"(?<=for\s)\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+-\w+", pbp_pa[1]).group(0) == away_fielders[4])|(re.search(r"(?<=for\s)\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+-\w+", pbp_pa[1]).group(0) == home_fielders[4])):
                 if (inning_topbot_tr == 'Top'):
-                    away_fielders[4] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
-                else: home_fielders[4] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
-            elif ((re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == away_fielders[5])|(re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == home_fielders[5])):
+                    away_fielders[4] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+-\w+(?=\ssubs)|\w+\s\w+-\w+(?=\sruns)", pbp_pa[1]).group(0)
+                else: home_fielders[4] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+-\w+(?=\ssubs)|\w+\s\w+-\w+(?=\sruns)", pbp_pa[1]).group(0)
+            elif ((re.search(r"(?<=for\s)\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+-\w+", pbp_pa[1]).group(0) == away_fielders[5])|(re.search(r"(?<=for\s)\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+-\w+", pbp_pa[1]).group(0) == home_fielders[5])):
                 if (inning_topbot_tr == 'Top'):
-                    away_fielders[5] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
-                else: home_fielders[5] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
-            elif ((re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == away_fielders[6])|(re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == home_fielders[6])):
+                    away_fielders[5] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+-\w+(?=\ssubs)|\w+\s\w+-\w+(?=\sruns)", pbp_pa[1]).group(0)
+                else: home_fielders[5] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+-\w+(?=\ssubs)|\w+\s\w+-\w+(?=\sruns)", pbp_pa[1]).group(0)
+            elif ((re.search(r"(?<=for\s)\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+-\w+", pbp_pa[1]).group(0) == away_fielders[6])|(re.search(r"(?<=for\s)\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+-\w+", pbp_pa[1]).group(0) == home_fielders[6])):
                 if (inning_topbot_tr == 'Top'):
-                    away_fielders[6] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
-                else: home_fielders[6] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
-            elif ((re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == away_fielders[7])|(re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == home_fielders[7])):
+                    away_fielders[6] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+-\w+(?=\ssubs)|\w+\s\w+-\w+(?=\sruns)", pbp_pa[1]).group(0)
+                else: home_fielders[6] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+-\w+(?=\ssubs)|\w+\s\w+-\w+(?=\sruns)", pbp_pa[1]).group(0)
+            elif ((re.search(r"(?<=for\s)\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+-\w+", pbp_pa[1]).group(0) == away_fielders[7])|(re.search(r"(?<=for\s)\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+-\w+", pbp_pa[1]).group(0) == home_fielders[7])):
                 if (inning_topbot_tr == 'Top'):
-                    away_fielders[7] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
-                else: home_fielders[7] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
-            elif ((re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == away_fielders[8])|(re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == home_fielders[8])):
+                    away_fielders[7] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+-\w+(?=\ssubs)|\w+\s\w+-\w+(?=\sruns)", pbp_pa[1]).group(0)
+                else: home_fielders[7] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+-\w+(?=\ssubs)|\w+\s\w+-\w+(?=\sruns)", pbp_pa[1]).group(0)
+            elif ((re.search(r"(?<=for\s)\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+-\w+", pbp_pa[1]).group(0) == away_fielders[8])|(re.search(r"(?<=for\s)\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+-\w+", pbp_pa[1]).group(0) == home_fielders[8])):
                 if (inning_topbot_tr == 'Top'):
-                    away_fielders[8] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
-                else: home_fielders[8] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
-            elif ((re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == away_fielders[9])|(re.search(r"(?<=for\s)\w+\s\w+", pbp_pa[1]).group(0) == home_fielders[9])):
+                    away_fielders[8] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+-\w+(?=\ssubs)|\w+\s\w+-\w+(?=\sruns)", pbp_pa[1]).group(0)
+                else: home_fielders[8] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+-\w+(?=\ssubs)|\w+\s\w+-\w+(?=\sruns)", pbp_pa[1]).group(0)
+            elif ((re.search(r"(?<=for\s)\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+-\w+", pbp_pa[1]).group(0) == away_fielders[9])|(re.search(r"(?<=for\s)\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+\s\w+\s\w+|(?<=for\s)\w+\s\w+-\w+", pbp_pa[1]).group(0) == home_fielders[9])):
                 if (inning_topbot_tr == 'Bot'):
-                    away_fielders[9] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
-                else: home_fielders[9] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)", pbp_pa[1]).group(0)
+                    away_fielders[9] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+-\w+(?=\ssubs)|\w+\s\w+-\w+(?=\sruns)", pbp_pa[1]).group(0)
+                else: home_fielders[9] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\sruns)|\w+\s\w+-\w+(?=\ssubs)|\w+\s\w+-\w+(?=\sruns)", pbp_pa[1]).group(0)
         elif (pbp_pa[0] == 'Defensive Substitution'):
             if (re.search("subs", pbp_pa[1]) != None):
                 # if the sub is for a DH
@@ -1109,194 +1109,194 @@ for pa in range(len(pbp_gt_nn)):
                     pass
                 elif (re.search(r"(?<=at\s)\w+\s\w+|(?<=at\s)\w+", pbp_pa[1]).group(0) == 'Catcher'):
                     if (inning_topbot_tr == 'Top'):
-                        home_fielders[2] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
-                    else: away_fielders[2] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                        home_fielders[2] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                    else: away_fielders[2] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
                 elif (re.search(r"(?<=at\s)\w+\s\w+|(?<=at\s)\w+", pbp_pa[1]).group(0) == 'First Base'):
                     if (inning_topbot_tr == 'Top'):
-                        home_fielders[3] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
-                    else: away_fielders[3] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                        home_fielders[3] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                    else: away_fielders[3] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
                 elif (re.search(r"(?<=at\s)\w+\s\w+|(?<=at\s)\w+", pbp_pa[1]).group(0) == 'Second Base'):
                     if (inning_topbot_tr == 'Top'):
-                        home_fielders[4] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
-                    else: away_fielders[4] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                        home_fielders[4] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                    else: away_fielders[4] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
                 elif (re.search(r"(?<=at\s)\w+\s\w+|(?<=at\s)\w+", pbp_pa[1]).group(0) == 'Third Base'):
                     if (inning_topbot_tr == 'Top'):
-                        home_fielders[5] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
-                    else: away_fielders[5] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                        home_fielders[5] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                    else: away_fielders[5] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
                 elif (re.search(r"(?<=at\s)\w+\s\w+|(?<=at\s)\w+", pbp_pa[1]).group(0) == 'Shortstop'):
                     if (inning_topbot_tr == 'Top'):
-                        home_fielders[6] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
-                    else: away_fielders[6] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                        home_fielders[6] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                    else: away_fielders[6] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
                 elif (re.search(r"(?<=at\s)\w+\s\w+|(?<=at\s)\w+", pbp_pa[1]).group(0) == 'Left Field'):
                     if (inning_topbot_tr == 'Top'):
-                        home_fielders[7] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
-                    else: away_fielders[7] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                        home_fielders[7] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                    else: away_fielders[7] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
                 elif (re.search(r"(?<=at\s)\w+\s\w+|(?<=at\s)\w+", pbp_pa[1]).group(0) == 'Center Field'):
                     if (inning_topbot_tr == 'Top'):
-                        home_fielders[8] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
-                    else: away_fielders[8] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                        home_fielders[8] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                    else: away_fielders[8] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
                 elif (re.search(r"(?<=at\s)\w+\s\w+|(?<=at\s)\w+", pbp_pa[1]).group(0) == 'Right Field'):
                     if (inning_topbot_tr == 'Bot'):
-                        home_fielders[9] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
-                    else: away_fielders[9] = re.search(r"\w+\s\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                        home_fielders[9] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                    else: away_fielders[9] = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
             elif (re.search("moves", pbp_pa[1]) != None):
                 if (re.search(r"(?<=to\s)\w+\s\w+|(?<=to\s)\w+", pbp_pa[1]).group(0) == 'Catcher'):
-                    if ((re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]) != home_fielders[2]) & (re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]) != away_fielders[2])):
+                    if ((re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]) != home_fielders[2]) & (re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]) != away_fielders[2])):
                         if (inning_topbot_tr == 'Top'):
                             home_fielders[0] = home_fielders[2]
-                            home_fielders[2] = re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)
+                            home_fielders[2] = re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)
                             for i in range(2, 10):
                                 if (i == 2): continue
-                                if (home_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)):
+                                if (home_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)):
                                     home_fielders[i] = home_fielders[0]
                                     home_fielders[0] = 'Placeholder0'
                                     break
                         else: 
                             away_fielders[0] = away_fielders[2]
-                            away_fielders[2] = re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)
+                            away_fielders[2] = re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)
                             for i in range(2, 10):
                                 if (i == 2): continue
-                                if (away_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)):
+                                if (away_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)):
                                     away_fielders[i] = away_fielders[0]
                                     away_fielders[0] = 'Placeholder0'
                                     break
                 elif (re.search(r"(?<=to\s)\w+\s\w+|(?<=to\s)\w+", pbp_pa[1]).group(0) == 'First Base'):
-                    if ((re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]) != home_fielders[3]) & (re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]) != away_fielders[3])):
+                    if ((re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]) != home_fielders[3]) & (re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]) != away_fielders[3])):
                         if (inning_topbot_tr == 'Top'):
                             home_fielders[0] = home_fielders[3]
-                            home_fielders[3] = re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)
+                            home_fielders[3] = re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)
                             for i in range(2, 10):
                                 if (i == 3): continue
-                                if (home_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)):
+                                if (home_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)):
                                     home_fielders[i] = home_fielders[0]
                                     home_fielders[0] = 'Placeholder0'
                                     break
                         else: 
                             away_fielders[0] = away_fielders[3]
-                            away_fielders[3] = re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)
+                            away_fielders[3] = re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)
                             for i in range(2, 10):
                                 if (i == 3): continue
-                                if (away_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)):
+                                if (away_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)):
                                     away_fielders[i] = away_fielders[0]
                                     away_fielders[0] = 'Placeholder0'
                                     break
                 elif (re.search(r"(?<=to\s)\w+\s\w+|(?<=to\s)\w+", pbp_pa[1]).group(0) == 'Second Base'):
-                    if ((re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]) != home_fielders[4]) & (re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]) != away_fielders[4])):
+                    if ((re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]) != home_fielders[4]) & (re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]) != away_fielders[4])):
                         if (inning_topbot_tr == 'Top'):
                             home_fielders[0] = home_fielders[4]
-                            home_fielders[4] = re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)
+                            home_fielders[4] = re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)
                             for i in range(2, 10):
                                 if (i == 4): continue
-                                if (home_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)):
+                                if (home_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)):
                                     home_fielders[i] = home_fielders[0]
                                     home_fielders[0] = 'Placeholder0'
                                     break
                         else: 
                             away_fielders[0] = away_fielders[4]
-                            away_fielders[4] = re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)
+                            away_fielders[4] = re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)
                             for i in range(2, 10):
                                 if (i == 4): continue
-                                if (away_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)):
+                                if (away_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)):
                                     away_fielders[i] = away_fielders[0]
                                     away_fielders[0] = 'Placeholder0'
                                     break
                 elif (re.search(r"(?<=to\s)\w+\s\w+|(?<=to\s)\w+", pbp_pa[1]).group(0) == 'Third Base'):
-                    if ((re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]) != home_fielders[5]) & (re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]) != away_fielders[5])):
+                    if ((re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]) != home_fielders[5]) & (re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]) != away_fielders[5])):
                         if (inning_topbot_tr == 'Top'):
                             home_fielders[0] = home_fielders[5]
-                            home_fielders[5] = re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)
+                            home_fielders[5] = re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)
                             for i in range(2, 10):
                                 if (i == 5): continue
-                                if (home_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)):
+                                if (home_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)):
                                     home_fielders[i] = home_fielders[0]
                                     home_fielders[0] = 'Placeholder0'
                                     break
                         else: 
                             away_fielders[0] = away_fielders[5]
-                            away_fielders[5] = re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)
+                            away_fielders[5] = re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)
                             for i in range(2, 10):
                                 if (i == 5): continue
-                                if (away_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)):
+                                if (away_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)):
                                     away_fielders[i] = away_fielders[0]
                                     away_fielders[0] = 'Placeholder0'
                                     break
                 elif (re.search(r"(?<=to\s)\w+\s\w+|(?<=to\s)\w+", pbp_pa[1]).group(0) == 'Shortstop'):
-                    if ((re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]) != home_fielders[6]) & (re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]) != away_fielders[6])):
+                    if ((re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]) != home_fielders[6]) & (re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]) != away_fielders[6])):
                         if (inning_topbot_tr == 'Top'):
                             home_fielders[0] = home_fielders[6]
-                            home_fielders[6] = re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)
+                            home_fielders[6] = re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)
                             for i in range(2, 10):
                                 if (i == 6): continue
-                                if (home_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)):
+                                if (home_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)):
                                     home_fielders[i] = home_fielders[0]
                                     home_fielders[0] = 'Placeholder0'
                                     break
                         else: 
                             away_fielders[0] = away_fielders[6]
-                            away_fielders[6] = re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)
+                            away_fielders[6] = re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)
                             for i in range(2, 10):
                                 if (i == 6): continue
-                                if (away_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)):
+                                if (away_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)):
                                     away_fielders[i] = away_fielders[0]
                                     away_fielders[0] = 'Placeholder0'
                                     break
                 elif (re.search(r"(?<=to\s)\w+\s\w+|(?<=to\s)\w+", pbp_pa[1]).group(0) == 'Left Field'):
-                    if ((re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]) != home_fielders[7]) & (re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]) != away_fielders[7])):
+                    if ((re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]) != home_fielders[7]) & (re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]) != away_fielders[7])):
                         if (inning_topbot_tr == 'Top'):
                             home_fielders[0] = home_fielders[7]
-                            home_fielders[7] = re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)
+                            home_fielders[7] = re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)
                             for i in range(2, 10):
                                 if (i == 7): continue
-                                if (home_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)):
+                                if (home_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)):
                                     home_fielders[i] = home_fielders[0]
                                     home_fielders[0] = 'Placeholder0'
                                     break
                         else: 
                             away_fielders[0] = away_fielders[7]
-                            away_fielders[7] = re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)
+                            away_fielders[7] = re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)
                             for i in range(2, 10):
                                 if (i == 7): continue
-                                if (away_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)):
+                                if (away_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)):
                                     away_fielders[i] = away_fielders[0]
                                     away_fielders[0] = 'Placeholder0'
                                     break
                 elif (re.search(r"(?<=to\s)\w+\s\w+|(?<=to\s)\w+", pbp_pa[1]).group(0) == 'Center Field'):
-                    if ((re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]) != home_fielders[8]) & (re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]) != away_fielders[8])):
+                    if ((re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]) != home_fielders[8]) & (re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]) != away_fielders[8])):
                         if (inning_topbot_tr == 'Top'):
                             home_fielders[0] = home_fielders[8]
-                            home_fielders[8] = re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)
+                            home_fielders[8] = re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)
                             for i in range(2, 10):
                                 if (i == 8): continue
-                                if (home_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)):
+                                if (home_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)):
                                     home_fielders[i] = home_fielders[0]
                                     home_fielders[0] = 'Placeholder0'
                                     break
                         else: 
                             away_fielders[0] = away_fielders[8]
-                            away_fielders[8] = re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)
+                            away_fielders[8] = re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)
                             for i in range(2, 10):
                                 if (i == 8): continue
-                                if (away_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)):
+                                if (away_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)):
                                     away_fielders[i] = away_fielders[0]
                                     away_fielders[0] = 'Placeholder0'
                                     break
                 elif (re.search(r"(?<=to\s)\w+\s\w+|(?<=to\s)\w+", pbp_pa[1]).group(0) == 'Right Field'):
-                    if ((re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]) != home_fielders[9]) & (re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]) != away_fielders[9])):
+                    if ((re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]) != home_fielders[9]) & (re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]) != away_fielders[9])):
                         if (inning_topbot_tr == 'Top'):
                             home_fielders[0] = home_fielders[9]
-                            home_fielders[9] = re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)
+                            home_fielders[9] = re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)
                             for i in range(2, 10):
                                 if (i == 9): continue
-                                if (home_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)):
+                                if (home_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)):
                                     home_fielders[i] = home_fielders[0]
                                     home_fielders[0] = 'Placeholder0'
                                     break
                         else: 
                             away_fielders[0] = away_fielders[9]
-                            away_fielders[9] = re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)
+                            away_fielders[9] = re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)
                             for i in range(2, 10):
                                 if (i == 9): continue
-                                if (away_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)", pbp_pa[1]).group(0)):
+                                if (away_fielders[i] == re.search(r"\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+\s\w+\s\w+(?=\smoves)|\w+\s\w+-\w+(?=\smoves)", pbp_pa[1]).group(0)):
                                     away_fielders[i] = away_fielders[0]
                                     away_fielders[0] = 'Placeholder0'
                                     break
