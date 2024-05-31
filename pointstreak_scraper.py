@@ -18,11 +18,11 @@ import os
 # BEFORE RUNNING
 
 # CITY ID TO INDICATE PATHWAY
-City_ID = 'James'
+City_ID = 'Jack'
 
 # PASTE THE GAME ID IN THE POINTSTREAK URL IN QUOTATION MARKS
 
-POINTSTREAK_GAMEID = "613993"
+POINTSTREAK_GAMEID = "614001"
 
 # PASTE THE POINSTREAK URL IN QUOTATION MARKS
 # gl_url = "http://ibl_baseball2.wttbaseball.pointstreak.com/gamelive/?gameid=599064"
@@ -36,7 +36,7 @@ gl_url = "http://ibl_baseball2.wttbaseball.pointstreak.com/gamelive/?gameid=" + 
 # MM is the month
 # DD is the date
 # GAME_DATE = '2023-08-18'
-GAME_DATE = '2024-05-25'
+GAME_DATE = '2024-05-29'
 # ENTER THE GAME TYPE
 # E is exhibition
 # C is championship
@@ -59,13 +59,13 @@ GAME_TYPE = 'R'
 AWAY_TEAM = 'BAR'
 # ENTER THE HOME TEAM ABBREVIATION
 # HOME_TEAM = 'LON'
-HOME_TEAM = 'HAM'
+HOME_TEAM = 'TOR'
 # ENTER THE AWAY STARTING PITCHER IN FORM FIRSTNAME LASTNAME
 # AWAY_STARTING_PITCHER = 'Juan Benitez'
-AWAY_STARTING_PITCHER = 'Josh Laukkanen'
+AWAY_STARTING_PITCHER = 'Cesar Rosado'
 # ENTER THE HOME STARTING PITCHER IN FORM FIRSTNAME LASTNAME
 # HOME_STARTING_PITCHER = 'Alex Springer'
-HOME_STARTING_PITCHER = 'Carlos Sano'
+HOME_STARTING_PITCHER = 'Sam Greene'
 # ENTER THE DOUBLEHEADER IDENTIFIER
 # 1 if the game is not the second game of a doubleheader
 # 2 if the game is the second game of a doubleheader
@@ -79,14 +79,14 @@ DH_IDENTIFIER = 1
 #                           'LF': 'Starlin Rodriguez',
 #                           'CF': 'Canice Ejoh',
 #                           'RF': 'Avery Tuck'}
-AWAY_STARTING_FIELDERS = {'C': 'Jeremie Veilleux',
-                          '1B': 'Nick Burdett',
-                          '2B': 'Kieran Bowles',
-                          '3B': 'Vaibhav Desai',
-                          'SS': 'Gus Wilson',
-                          'LF': 'Jordan Lewis',
-                          'CF': 'Ethan Paulos',
-                          'RF': 'Matthew Fabian'}
+AWAY_STARTING_FIELDERS = {'C': 'Hayden Jaco',
+                          '1B': 'Malik Williams',
+                          '2B': 'Kyle Maves',
+                          '3B': 'Noah Hull',
+                          'SS': 'Adam Odd',
+                          'LF': 'Nolan Machibroda',
+                          'CF': 'Canice Ejoh',
+                          'RF': 'Rick Phillips'}
 # ENTER THE HOME STARTING FIELDERS AT THEIR POSITION IN FORM FIRSTNAME LASTNAME
 # HOME_STARTING_FIELDERS = {'C': 'Brad Verhoeven',
 #                           '1B': 'Kayne McGee',
@@ -96,14 +96,14 @@ AWAY_STARTING_FIELDERS = {'C': 'Jeremie Veilleux',
 #                           'LF': 'Starling Joseph',
 #                           'CF': 'Andrew Lawrence',
 #                           'RF': 'Byron Reichstein'}
-HOME_STARTING_FIELDERS = {'C': 'Tyler Plumpton',
-                          '1B': 'Nolan Machibroda',
-                          '2B': 'Adam Odd',
-                          '3B': 'Malik Williams',
-                          'SS': 'Carson Burns',
-                          'LF': 'Noah Hull',
-                          'CF': 'Canice Ejoh',
-                          'RF': 'Rick Phillips'}
+HOME_STARTING_FIELDERS = {'C': 'Dionysius Chialtas',
+                          '1B': 'Jordan Castaldo',
+                          '2B': 'Charlie Towers',
+                          '3B': 'Johnathan Solazzo',
+                          'SS': 'Jose Vinicio',
+                          'LF': 'Greg Carrington',
+                          'CF': 'Connor Lewis',
+                          'RF': 'Ryan Dos Santos'}
 # ----------
 
 # scrape the data
@@ -690,7 +690,7 @@ for pa in range(len(pbp_gt_nn)):
             elif (re.search("DP", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('double_play')
             # search for reached on error
-            elif (re.search(r"advances to 1st \(error", pbp_pa[len(pbp_pa) - 1]) != None):
+            elif (re.search(r"advances to 1st \(error|advances to 1st \(E\)", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('field_error')
             elif (re.search(r"fielder's choice", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('fielders_choice')
@@ -700,7 +700,7 @@ for pa in range(len(pbp_gt_nn)):
                 events_l.append('field_out')
             elif (re.search(r"\([1-6]-", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('field_out')
-            elif (re.search(r"\([1-6]\)|\(P[1-6]\)|\(U[1-6]\)", pbp_pa[len(pbp_pa) - 1]) != None):
+            elif (re.search(r"\([1-6]\)|\(P[1-6]\)|\(U[1-6]\)|\([1-6]U\)|\(L[1-9]\)", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('field_out')
             elif (re.search(r"sacrifice fly", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('sac_fly')
@@ -839,7 +839,7 @@ for pa in range(len(pbp_gt_nn)):
             elif (re.search("DP", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('double_play')
             # search for reached on error
-            elif (re.search(r"advances to 1st \(error", pbp_pa[len(pbp_pa) - 1]) != None):
+            elif (re.search(r"advances to 1st \(error|advances to 1st \(E\)", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('field_error')
             elif (re.search(r"fielder's choice", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('fielders_choice')
@@ -849,7 +849,7 @@ for pa in range(len(pbp_gt_nn)):
                 events_l.append('field_out')
             elif (re.search(r"\([1-6]-", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('field_out')
-            elif (re.search(r"\([1-6]\)|\(P[1-6]\)|\(U[1-6]\)", pbp_pa[len(pbp_pa) - 1]) != None):
+            elif (re.search(r"\([1-6]\)|\(P[1-6]\)|\(U[1-6]\)|\([1-6]U\)|\(L[1-9]\)", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('field_out')
             elif (re.search(r"sacrifice fly", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('sac_fly')
@@ -1055,13 +1055,13 @@ for pa in range(len(pbp_gt_nn)):
     else:
         if (pbp_pa[0] == 'Pitching Substitution'):
             if (inning_topbot_tr == 'Top'):
-                home_pitcher = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                home_pitcher = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sPitcher)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\sPitcher)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\sPitcher)|\w+\s\w+-\w+(?=\ssubs)|\w+\s\w+-\w+(?=\sPitcher)", pbp_pa[1]).group(0)
                 home_pitcher_throws = get_pitcher_throws(home_pitcher)
                 if (home_pitcher_throws == 'S'):
                     home_pitcher_switch_pitcher = True
                 else: home_pitcher_switch_pitcher = False
             else: 
-                away_pitcher = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+-\w+(?=\ssubs)", pbp_pa[1]).group(0)
+                away_pitcher = re.search(r"\w+\s\w+(?=\ssubs)|\w+\s\w+(?=\sPitcher)|\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+(?=\sPitcher)|\w+\s\w+\s\w+\s\w+(?=\ssubs)|\w+\s\w+\s\w+\s\w+(?=\sPitcher)|\w+\s\w+-\w+(?=\ssubs)|\w+\s\w+-\w+(?=\sPitcher)", pbp_pa[1]).group(0)
                 away_pitcher_throws = get_pitcher_throws(away_pitcher)
                 if (away_pitcher_throws == 'S'):
                     away_pitcher_switch_pitcher = True
