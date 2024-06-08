@@ -1,0 +1,405 @@
+Canice Ejoh
+CalledStrike
+Ball
+Foul
+Canice Ejoh advances to 1st (single), Canice Ejoh putout (caught stealing: CS 2-6) for out number 1
+
+Kyle Maves
+Foul
+Ball
+CalledStrike
+Kyle Maves putout (strike out) for out number 2
+
+Adam Odd
+Ball
+SwingingStrike
+Adam Odd putout (4-3) for out number 3
+
+Champ Garner
+CalledStrike
+Foul
+Champ Garner putout (F-9) for out number 1
+
+Tommy Reyes-Cruz
+Foul
+Tommy Reyes-Cruz putout (fly out to left field) for out number 2
+
+Starling Joseph
+CalledStrike
+Ball
+SwingingStrike
+Starling Joseph putout (strike out) for out number 3
+
+Ryan Rijo
+Ryan Rijo putout (fly out to the catcher) for out number 1
+
+Hayden Jaco
+CalledStrike
+Hayden Jaco putout (fly out to center field) for out number 2
+
+Nolan Machibroda
+Ball
+Foul
+CalledStrike
+Nolan Machibroda putout (5-3) for out number 3
+
+Kaiden Cardoso
+Kaiden Cardoso advances to 1st (single)
+
+Eduardo De Oleo
+CalledStrike
+, Kaiden Cardoso advances to 2nd (balk), 
+SwingingStrike
+Eduardo De Oleo advances to 1st (single), Kaiden Cardoso advances to 3rd
+
+Byron Reichstein
+Ball
+Eduardo De Oleo advances to 2nd, Byron Reichstein putout (1-3) for out number 1
+
+Victor Plaz
+SwingingStrike
+SwingingStrike
+Foul
+Victor Plaz putout (strike out swinging) for out number 2
+
+Gibson Krzeminski
+CalledStrike
+Foul
+Gibson Krzeminski putout (fly out to center field) for out number 3
+
+Rick Phillips
+CalledStrike
+SwingingStrike
+Rick Phillips putout (strike out) for out number 1
+
+Zachary Orchard
+Ball
+SwingingStrike
+CalledStrike
+Ball
+Zac Orchard putout (strike out swinging) for out number 2
+
+Carson Burns
+Carson Burns putout (G3) for out number 3
+
+Tristan Osika
+Ball
+Tristan Osika advances to 1st (single)
+
+Champ Garner
+Champ Garner putout (fly out to the pitcher) for out number 1
+
+Tommy Reyes-Cruz
+Ball
+Foul
+, Tristan Osika advances to 2nd (balk), 
+CalledStrike
+Tommy Reyes-Cruz putout (G3) for out number 2, Tristan Osika advances to 3rd
+
+Starling Joseph
+Foul
+SwingingStrike
+Starling Joseph putout (fly out to right field) for out number 3
+
+Canice Ejoh
+CalledStrike
+Ball
+Ball
+Ball
+Canice Ejoh putout (4-3) for out number 1
+
+Kyle Maves
+CalledStrike
+SwingingStrike
+Foul
+Ball
+Kyle Maves putout (strike out swinging) for out number 2
+
+Adam Odd
+Adam Odd putout (fly out to left field) for out number 3
+
+Kaiden Cardoso
+CalledStrike
+Ball
+SwingingStrike
+Ball
+Kaiden Cardoso putout (strike out) for out number 1
+
+Eduardo De Oleo
+Eduardo De Oleo putout (G3) for out number 2
+
+Byron Reichstein
+CalledStrike
+Ball
+Ball
+CalledStrike
+Byron Reichstein putout (f2) for out number 3
+
+Ryan Rijo
+Ryan Rijo putout (fly out to the first baseman) for out number 1
+
+Hayden Jaco
+Ball
+CalledStrike
+Ball
+Ball
+Hayden Jaco putout (6-3) for out number 2
+
+Nolan Machibroda
+Ball
+CalledStrike
+Foul
+Ball
+Nolan Machibroda putout (G3) for out number 3
+
+Victor Plaz
+Foul
+Foul
+Victor Plaz putout (fly out to right field) for out number 1
+
+Gibson Krzeminski
+CalledStrike
+CalledStrike
+Foul
+Gibson Krzeminski putout (4-3) for out number 2
+
+Tristan Osika
+CalledStrike
+Foul
+Foul
+Ball
+Tristan Osika putout (4-3) for out number 3
+
+Rick Phillips
+CalledStrike
+Foul
+Rick Phillips putout (strike out) for out number 1
+
+Zachary Orchard
+CalledStrike
+Ball
+Ball
+Ball
+Zac Orchard advances to 1st (walk)
+
+Carson Burns
+Ball
+, Zac Orchard advances to 2nd (pass ball), 
+Ball
+Ball
+CalledStrike
+Foul
+Carson Burns advances to 1st (walk)
+
+Canice Ejoh
+CalledStrike
+CalledStrike
+Ball
+Ball
+Ball
+Foul
+Canice Ejoh advances to 1st (walk), Carson Burns advances to 2nd, Zac Orchard advances to 3rd
+
+Kyle Maves
+SwingingStrike
+Ball
+SwingingStrike
+Ball
+Ball
+Foul
+Foul
+Kyle Maves putout (strike out swinging) for out number 2
+
+Adam Odd
+SwingingStrike
+SwingingStrike
+Adam Odd advances to 2nd (double), Canice Ejoh Scores Earned, Zac Orchard Scores Earned, Carson Burns Scores Earned
+
+Ryan Rijo
+SwingingStrike
+SwingingStrike
+Ryan Rijo putout (1-3) for out number 3
+
+Champ Garner
+SwingingStrike
+Ball
+SwingingStrike
+Ball
+Champ Garner putout (6-3) for out number 1
+
+Tommy Reyes-Cruz
+Tommy Reyes-Cruz putout (G3) for out number 2
+
+Starling Joseph
+Ball
+SwingingStrike
+Foul
+Ball
+Starling Joseph advances to 1st (single)
+
+Kaiden Cardoso
+CalledStrike
+SwingingStrike
+Ball
+Kaiden Cardoso putout (fly out to left field) for out number 3
+
+Pitching Substitution
+Travis Keys subs for Jose Arias Pitcher.
+
+Hayden Jaco
+SwingingStrike
+Hayden Jaco putout (fly out to left field) for out number 1
+
+Nolan Machibroda
+CalledStrike
+Foul
+Foul
+Nolan Machibroda putout (strike out swinging) for out number 2
+
+Rick Phillips
+Foul
+Rick Phillips advances to 3rd (triple)
+
+Zachary Orchard
+Ball
+Ball
+CalledStrike
+CalledStrike
+Ball
+Zac Orchard advances to 1st (walk)
+
+Carson Burns
+Ball
+Ball
+Carson Burns putout (fly out to center field) for out number 3
+
+Eduardo De Oleo
+Ball
+SwingingStrike
+Ball
+Foul
+Eduardo De Oleo putout (6-3) for out number 1
+
+Byron Reichstein
+Ball
+SwingingStrike
+Byron Reichstein putout (G3) for out number 2
+
+Victor Plaz
+Victor Plaz advances to 1st (error by the third baseman)
+
+Gibson Krzeminski
+Gibson Krzeminski advances to 1st (single), Victor Plaz advances to 2nd
+
+Tristan Osika
+Foul
+Foul
+Tristan Osika putout (strike out swinging) for out number 3
+
+Canice Ejoh
+CalledStrike
+Ball
+Ball
+Canice Ejoh advances to 2nd (double)
+
+Kyle Maves
+Canice Ejoh advances to 3rd, Kyle Maves putout (2-3) for out number 1
+
+Adam Odd
+SwingingStrike
+Foul
+Adam Odd putout (strike out swinging) for out number 2
+
+Ryan Rijo
+Ball
+SwingingStrike
+Ryan Rijo advances to 1st (single), Canice Ejoh Scores Earned
+
+Hayden Jaco
+Ball
+Ball
+Ball
+Hayden Jaco advances to 1st (walk), Ryan Rijo advances to 2nd
+
+Nolan Machibroda
+CalledStrike
+Ball
+SwingingStrike
+Nolan Machibroda putout (strike out) for out number 3
+
+Pitching Substitution
+Makaio Cisneros subs for Frank Garces Pitcher.
+
+Champ Garner
+Ball
+Ball
+CalledStrike
+Champ Garner putout (f2) for out number 1
+
+Tommy Reyes-Cruz
+Ball
+Ball
+Foul
+SwingingStrike
+Foul
+Tommy Reyes-Cruz advances to 1st (single)
+
+Starling Joseph
+Ball
+Starling Joseph advances to 1st (fielder's choice), Tommy Reyes-Cruz putout (FC6-4) for out number 2
+
+Kaiden Cardoso
+Kaiden Cardoso putout (4-3) for out number 3
+
+Pitching Substitution
+Jonathan Henry subs for Travis Keys Pitcher.
+
+Rick Phillips
+SwingingStrike
+Rick Phillips advances to 1st (error by the second baseman), Rick Phillips advances to 2nd (e4)
+
+Zachary Orchard
+SwingingStrike
+Ball
+CalledStrike
+Zac Orchard putout (strike out swinging) for out number 1
+
+Carson Burns
+CalledStrike
+Ball
+Ball
+Rick Phillips advances to 3rd, Carson Burns putout (G3) for out number 2
+
+Canice Ejoh
+Ball
+Canice Ejoh putout (fly out to the second baseman) for out number 3
+
+Eduardo De Oleo
+Ball
+Foul
+Eduardo De Oleo advances to 1st (single)
+
+Pitching Substitution
+Brandon Hillier subs for Makaio Cisneros Pitcher.
+
+Offensive Substitution
+Charlie Bowman runs for Eduardo De Oleo at 1st base.
+
+Byron Reichstein
+CalledStrike
+Ball
+Foul
+Ball
+Foul
+Charlie Bowman advances to 2nd, Byron Reichstein putout (4-3) for out number 1
+
+Victor Plaz
+CalledStrike
+Ball
+Victor Plaz putout (fly out to center field) for out number 2
+
+Gibson Krzeminski
+CalledStrike
+CalledStrike
+Gibson Krzeminski putout (strike out swinging) for out number 3
+

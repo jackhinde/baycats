@@ -22,7 +22,7 @@ City_ID = 'Jack'
 
 # PASTE THE GAME ID IN THE POINTSTREAK URL IN QUOTATION MARKS
 
-POINTSTREAK_GAMEID = "614001"
+POINTSTREAK_GAMEID = "614020"
 
 # PASTE THE POINSTREAK URL IN QUOTATION MARKS
 # gl_url = "http://ibl_baseball2.wttbaseball.pointstreak.com/gamelive/?gameid=599064"
@@ -36,7 +36,7 @@ gl_url = "http://ibl_baseball2.wttbaseball.pointstreak.com/gamelive/?gameid=" + 
 # MM is the month
 # DD is the date
 # GAME_DATE = '2023-08-18'
-GAME_DATE = '2024-05-29'
+GAME_DATE = '2024-06-07'
 # ENTER THE GAME TYPE
 # E is exhibition
 # C is championship
@@ -59,13 +59,13 @@ GAME_TYPE = 'R'
 AWAY_TEAM = 'BAR'
 # ENTER THE HOME TEAM ABBREVIATION
 # HOME_TEAM = 'LON'
-HOME_TEAM = 'TOR'
+HOME_TEAM = 'LON'
 # ENTER THE AWAY STARTING PITCHER IN FORM FIRSTNAME LASTNAME
 # AWAY_STARTING_PITCHER = 'Juan Benitez'
-AWAY_STARTING_PITCHER = 'Cesar Rosado'
+AWAY_STARTING_PITCHER = 'Frank Garces'
 # ENTER THE HOME STARTING PITCHER IN FORM FIRSTNAME LASTNAME
 # HOME_STARTING_PITCHER = 'Alex Springer'
-HOME_STARTING_PITCHER = 'Sam Greene'
+HOME_STARTING_PITCHER = 'Jose Arias'
 # ENTER THE DOUBLEHEADER IDENTIFIER
 # 1 if the game is not the second game of a doubleheader
 # 2 if the game is the second game of a doubleheader
@@ -80,11 +80,11 @@ DH_IDENTIFIER = 1
 #                           'CF': 'Canice Ejoh',
 #                           'RF': 'Avery Tuck'}
 AWAY_STARTING_FIELDERS = {'C': 'Hayden Jaco',
-                          '1B': 'Malik Williams',
+                          '1B': 'Nolan Machibroda',
                           '2B': 'Kyle Maves',
-                          '3B': 'Noah Hull',
-                          'SS': 'Adam Odd',
-                          'LF': 'Nolan Machibroda',
+                          '3B': 'Adam Odd',
+                          'SS': 'Carson Burns',
+                          'LF': 'Zac Orchard',
                           'CF': 'Canice Ejoh',
                           'RF': 'Rick Phillips'}
 # ENTER THE HOME STARTING FIELDERS AT THEIR POSITION IN FORM FIRSTNAME LASTNAME
@@ -96,14 +96,14 @@ AWAY_STARTING_FIELDERS = {'C': 'Hayden Jaco',
 #                           'LF': 'Starling Joseph',
 #                           'CF': 'Andrew Lawrence',
 #                           'RF': 'Byron Reichstein'}
-HOME_STARTING_FIELDERS = {'C': 'Dionysius Chialtas',
-                          '1B': 'Jordan Castaldo',
-                          '2B': 'Charlie Towers',
-                          '3B': 'Johnathan Solazzo',
-                          'SS': 'Jose Vinicio',
-                          'LF': 'Greg Carrington',
-                          'CF': 'Connor Lewis',
-                          'RF': 'Ryan Dos Santos'}
+HOME_STARTING_FIELDERS = {'C': 'Eduardo De Oleo',
+                          '1B': 'Kaiden Cardoso',
+                          '2B': 'Gibson Krzeminski',
+                          '3B': 'Victor Plaz',
+                          'SS': 'Tommy Reyes-Cruz',
+                          'LF': 'Starling Joseph',
+                          'CF': 'Champ Garner',
+                          'RF': 'Byron Reichstein'}
 # ----------
 
 # scrape the data
@@ -700,7 +700,7 @@ for pa in range(len(pbp_gt_nn)):
                 events_l.append('field_out')
             elif (re.search(r"\([1-6]-", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('field_out')
-            elif (re.search(r"\([1-6]\)|\(P[1-6]\)|\(U[1-6]\)|\([1-6]U\)|\(L[1-9]\)", pbp_pa[len(pbp_pa) - 1]) != None):
+            elif (re.search(r"\([1-6]\)|\(P[1-6]\)|\(U[1-6]\)|\([1-6]U\)|\(L[1-9]\)|\(F-[1-9]\)|\(f[1-9]\)|\(G[1-9]\)", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('field_out')
             elif (re.search(r"sacrifice fly", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('sac_fly')
@@ -849,7 +849,7 @@ for pa in range(len(pbp_gt_nn)):
                 events_l.append('field_out')
             elif (re.search(r"\([1-6]-", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('field_out')
-            elif (re.search(r"\([1-6]\)|\(P[1-6]\)|\(U[1-6]\)|\([1-6]U\)|\(L[1-9]\)", pbp_pa[len(pbp_pa) - 1]) != None):
+            elif (re.search(r"\([1-6]\)|\(P[1-6]\)|\(U[1-6]\)|\([1-6]U\)|\(L[1-9]\)|\(F-[1-9]\)|\(f[1-9]\)|\(G[1-9]\)", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('field_out')
             elif (re.search(r"sacrifice fly", pbp_pa[len(pbp_pa) - 1]) != None):
                 events_l.append('sac_fly')
