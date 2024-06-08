@@ -9,7 +9,7 @@ library(htmlwidgets)
 # BEFORE RUNNING
 
 #CITY ID TO INDICATE PATHWAY
-City_ID = "James"
+City_ID = "Jack"
 
 # ENTER THE GAME ID IN QUOTATION MARKS
 # IN THE FORM YYYYMMDDRRRHHHN
@@ -20,7 +20,7 @@ City_ID = "James"
 # HHH is the home team abbreviation
 # N is 1 if the game is not the second game of a doubleheader
 # N is 2 if the game is the second game of a doubleheader
-game_id <- '20240524BARHAM1'
+game_id <- '20240607BARLON1'
 
 # ENTER WHETHER PITCHES ARE PARTIALLY OR FULLY TRACKED
 # TRUE if partially or fully tracked
