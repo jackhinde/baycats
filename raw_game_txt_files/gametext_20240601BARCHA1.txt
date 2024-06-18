@@ -1,0 +1,460 @@
+Lee Kucera
+Foul
+Ball
+Ball
+Foul
+Lee Kucera putout (strike out swinging) for out number 1
+
+Daniel Battel
+Daniel Battel advances to 1st (single)
+
+Seth Strong
+Seth Strong advances to 1st (single), Daniel Battel advances to 3rd
+
+Braxton Haggith
+Foul
+Ball
+Foul
+Foul
+Foul
+Braxton Haggith putout (3) for out number 2, Seth Strong putout (3-6) for out number 3
+
+Canice Ejoh
+Ball
+Ball
+CalledStrike
+Canice Ejoh advances to 1st (single)
+
+Kyle Maves
+Foul
+Ball
+Ball
+Kyle Maves advances to 1st (single), Kyle Maves advances to 2nd, Canice Ejoh advances to 3rd
+
+Adam Odd
+Kyle Maves advances to 3rd, Canice Ejoh Scores Earned, Adam Odd putout (sacrifice fly to right fielder) for out number 1
+
+Ryan Rijo
+Ryan Rijo advances to 1st (single), Kyle Maves Scores Earned
+
+Hayden Jaco
+Ball
+CalledStrike
+CalledStrike
+Ryan Rijo advances to 2nd (stolen base), Hayden Jaco putout (strike out swinging) for out number 2
+
+Nolan Machibroda
+Ball
+Ball
+Ball
+Nolan Machibroda advances to 1st (walk)
+
+Rick Phillips
+Rick Phillips advances to 1st (fielder's choice), Nolan Machibroda putout (6-4) for out number 3
+
+Robert Mackie
+Foul
+Ball
+Robert Mackie putout (6-3) for out number 1
+
+Trent Sillett
+Foul
+Foul
+Trent Sillett advances to 1st (single)
+
+Greg Kemble
+CalledStrike
+Greg Kemble advances to 1st (error by the third baseman), Trent Sillett advances to 2nd
+
+Torrin Vaselenak
+SwingingStrike
+Torrin Vaselenak putout (fly out to the catcher) for out number 2
+
+Spencer Morin
+Ball
+CalledStrike
+Foul
+Spencer Morin putout (1-3) for out number 3
+
+Noah Hull
+CalledStrike
+Ball
+Ball
+CalledStrike
+Foul
+Noah Hull advances to 1st (single)
+
+Brad McQuinn
+Ball
+SwingingStrike
+Foul
+Brad McQuinn advances to 1st (single), Noah Hull advances to 2nd
+
+Canice Ejoh
+Ball
+Ball
+Canice Ejoh advances to 1st (single), Brad McQuinn advances to 2nd, Noah Hull advances to 3rd
+
+Kyle Maves
+Ball
+Ball
+Ball
+CalledStrike
+Kyle Maves advances to 1st (fielder's choice), Canice Ejoh advances to 2nd, Brad McQuinn advances to 3rd, Noah Hull putout (3-2) for out number 1
+
+Adam Odd
+Ball
+SwingingStrike
+Adam Odd putout (fly out to the shortstop) for out number 2
+
+Ryan Rijo
+Ryan Rijo putout (fly out to the shortstop) for out number 3
+
+Lee Kucera
+Foul
+Foul
+Ball
+Lee Kucera putout (strike out swinging) for out number 1
+
+Daniel Battel
+Ball
+Ball
+Ball
+SwingingStrike
+Daniel Battel advances to 1st (walk)
+
+Seth Strong
+Seth Strong putout (fly out to left field) for out number 2
+
+Braxton Haggith
+Braxton Haggith putout (fly out to left field) for out number 3
+
+Hayden Jaco
+Ball
+Ball
+Ball
+Hayden Jaco advances to 1st (walk)
+
+Nolan Machibroda
+Foul
+CalledStrike
+Foul
+Ball
+Ball
+Hayden Jaco putout (6-4) for out number 1, Nolan Machibroda putout (6-4-3 DP) for out number 2
+
+Rick Phillips
+Rick Phillips advances to 2nd (double)
+
+Noah Hull
+Ball
+Ball
+CalledStrike
+, Rick Phillips advances to 3rd (stolen base), 
+Ball
+Noah Hull advances to 1st (walk)
+
+Brad McQuinn
+Ball
+Foul
+Ball
+CalledStrike
+, Noah Hull advances to 2nd (stolen base), Rick Phillips Scores Earned (stolen base), 
+Foul
+Brad McQuinn advances to 1st (single), Noah Hull Scores Earned
+
+Canice Ejoh
+Ball
+Canice Ejoh putout (fly out to center field) for out number 3
+
+Robert Mackie
+Ball
+Ball
+Ball
+CalledStrike
+Robert Mackie advances to 1st (walk)
+
+Trent Sillett
+SwingingStrike
+CalledStrike
+Foul
+Foul
+Trent Sillett putout (fly out to left field) for out number 1
+
+Greg Kemble
+Foul
+Ball
+SwingingStrike
+Greg Kemble putout (fly out to center field) for out number 2
+
+Torrin Vaselenak
+Ball
+SwingingStrike
+Foul
+Ball
+, Robert Mackie advances to 2nd (stolen base), 
+Ball
+Foul
+Foul
+Torrin Vaselenak advances to 1st (walk)
+
+Spencer Morin
+Ball
+CalledStrike
+Ball
+Spencer Morin advances to 1st (single), Torrin Vaselenak advances to 3rd, Robert Mackie Scores Earned
+
+Lee Kucera
+Ball
+CalledStrike
+Lee Kucera advances to 1st (hit by pitch), Spencer Morin advances to 2nd
+
+Daniel Battel
+Daniel Battel advances to 1st (fielder's choice), Lee Kucera putout (6-4) for out number 3
+
+Pitching Substitution 9
+Sam McKinlay subs for Cam OReilly Pitcher.
+
+Kyle Maves
+Ball
+CalledStrike
+Foul
+Kyle Maves putout (strike out) for out number 1
+
+Adam Odd
+Adam Odd putout (1-3) for out number 2
+
+Ryan Rijo
+Foul
+Ryan Rijo advances to 1st (single)
+
+Hayden Jaco
+Ball
+Foul
+Ball
+Hayden Jaco advances to 1st (error by the third baseman), Ryan Rijo advances to 2nd
+
+Nolan Machibroda
+Nolan Machibroda putout (fly out to left field) for out number 3
+
+Seth Strong
+Ball
+Seth Strong Scores Earned (home run)
+
+Braxton Haggith
+Foul
+Foul
+Braxton Haggith putout (4-3) for out number 1
+
+Robert Mackie
+Foul
+Robert Mackie advances to 1st (single)
+
+Trent Sillett
+Ball
+Trent Sillett advances to 1st (single), Trent Sillett advances to 2nd, Robert Mackie advances to 3rd
+
+Greg Kemble
+Ball
+CalledStrike
+Greg Kemble advances to 1st (single), Trent Sillett advances to 3rd, Robert Mackie Scores Earned
+
+Torrin Vaselenak
+Ball
+Foul
+Ball
+Ball
+SwingingStrike
+Foul
+Foul
+Foul
+Trent Sillett Scores Earned, Torrin Vaselenak putout (sacrifice fly to center fielder) for out number 2
+
+Spencer Morin
+Ball
+Spencer Morin putout (fly out to center field) for out number 3
+
+Rick Phillips
+Ball
+Rick Phillips putout (6-3) for out number 1
+
+Noah Hull
+Ball
+Foul
+Noah Hull advances to 1st (single)
+
+Brad McQuinn
+CalledStrike
+SwingingStrike
+Ball
+Brad McQuinn advances to 2nd (double), Noah Hull advances to 3rd
+
+Canice Ejoh
+Canice Ejoh advances to 1st (single), Canice Ejoh advances to 2nd, Brad McQuinn advances to 3rd, Noah Hull Scores Earned, Brad McQuinn putout (8-2) for out number 2
+
+Kyle Maves
+Kyle Maves putout (fly out to center field) for out number 3
+
+Pitching Substitution
+Chris Lazar subs for Juan Benitez Pitcher.
+
+Lee Kucera
+Lee Kucera putout (fly out to left field) for out number 1
+
+Daniel Battel
+CalledStrike
+CalledStrike
+Daniel Battel putout (6-3) for out number 2
+
+Seth Strong
+Seth Strong putout (fly out to the third baseman) for out number 3
+
+Adam Odd
+Ball
+CalledStrike
+Ball
+Adam Odd advances to 1st (single)
+
+Ryan Rijo
+Ryan Rijo putout (fly out to the third baseman) for out number 1
+
+Hayden Jaco
+Hayden Jaco advances to 1st (error by the pitcher), Hayden Jaco advances to 2nd, Adam Odd advances to 3rd
+
+Nolan Machibroda
+Ball
+CalledStrike
+Ball
+Foul
+Nolan Machibroda advances to 2nd (double), Hayden Jaco advances to 3rd, Adam Odd Scores Earned
+
+Rick Phillips
+Ball
+Ball
+Nolan Machibroda advances to 3rd, Hayden Jaco Scores Unearned, Rick Phillips putout (4-3) for out number 2
+
+Noah Hull
+Foul
+Ball
+Ball
+Noah Hull putout (fly out to center field) for out number 3
+
+Braxton Haggith
+Ball
+Braxton Haggith putout (3) for out number 1
+
+Robert Mackie
+Ball
+SwingingStrike
+SwingingStrike
+Ball
+Robert Mackie putout (strike out swinging) for out number 2
+
+Trent Sillett
+Trent Sillett advances to 2nd (double)
+
+Greg Kemble
+Ball
+SwingingStrike
+Greg Kemble advances to 1st (single), Trent Sillett advances to 3rd
+
+Torrin Vaselenak
+SwingingStrike
+Ball
+Ball
+Torrin Vaselenak advances to 1st (single), Greg Kemble advances to 2nd, Trent Sillett Scores Earned
+
+Offensive Substitution
+Miles Norman subs for Spencer Morin.
+
+Miles Norman
+Miles Norman putout (fly out to the first baseman) for out number 3
+
+Defensive Substitution
+Miles Norman moves to Right Field.
+
+Pitching Substitution 2
+Catalin Morin subs for Sam McKinlay Pitcher.
+
+Brad McQuinn
+Foul
+SwingingStrike
+Ball
+Brad McQuinn putout (6-3) for out number 1
+
+Canice Ejoh
+Canice Ejoh advances to 2nd (double)
+
+Kyle Maves
+CalledStrike
+Kyle Maves putout (fly out to center field) for out number 2, Canice Ejoh putout (8-4) for out number 3
+
+Pitching Substitution
+Carlos Sano subs for Chris Lazar Pitcher.
+
+Lee Kucera
+Ball
+SwingingStrike
+Foul
+Lee Kucera putout (strike out) for out number 1
+
+Daniel Battel
+Ball
+Daniel Battel putout (fly out to the shortstop) for out number 2
+
+Seth Strong
+Ball
+Ball
+Seth Strong putout (fly out to center field) for out number 3
+
+Adam Odd
+Ball
+Foul
+Ball
+Ball
+Foul
+Adam Odd advances to 1st (walk)
+
+Ryan Rijo
+SwingingStrike
+Ball
+Ball
+SwingingStrike
+Ryan Rijo putout (fly out to center field) for out number 1
+
+Pitching Substitution
+Garret Day subs for Catalin Morin Pitcher.
+
+Hayden Jaco
+Hayden Jaco advances to 1st (single), Adam Odd advances to 3rd
+
+Nolan Machibroda
+Ball
+Ball
+Nolan Machibroda advances to 1st (single), Hayden Jaco advances to 2nd, Adam Odd Scores Earned
+
+Rick Phillips
+Nolan Machibroda putout (4-6) for out number 2, Rick Phillips putout (4-6-3 DP) for out number 3
+
+Braxton Haggith
+SwingingStrike
+Foul
+Ball
+Braxton Haggith putout (4-3) for out number 1
+
+Offensive Substitution 4
+Anthony Polowick subs for Robert Mackie.
+
+Anthony Polowick
+Ball
+Ball
+Anthony Polowick putout (4-3) for out number 2
+
+Offensive Substitution
+Noah Murciano subs for Trent Sillett.
+
+Noah Murciano
+Foul
+Ball
+Noah Murciano putout (fly out to the shortstop) for out number 3
+
